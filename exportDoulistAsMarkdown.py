@@ -84,11 +84,11 @@ def exportToMarkdown(doulistTile, doulistAbout, bookInfos):
     i = 0
     for book in bookInfos:
         file.write('\n### No.{0:d} {1}\n'.format(i + 1, book.name))
-        file.write(' > 图书名称：[{0}]({1})  \n'.format(book.name, book.url))
-        file.write(' > 豆瓣链接：[{0}]({1})  \n'.format(book.url, book.url))
-        file.write(' > 豆瓣评分：{0}  \n'.format(book.ratingNums))
-        file.write(' > 评分人数：{0}  \n'.format(book.ratingPeople))
-        file.write(' > 我的评论：{0}  \n'.format(book.comment))
+        file.write(' > **图书名称**：[{0}]({1})  \n'.format(book.name, book.url))
+        file.write(' > **豆瓣链接**：[{0}]({1})  \n'.format(book.url, book.url))
+        file.write(' > **豆瓣评分**：{0}  \n'.format(book.ratingNums))
+        file.write(' > **评分人数**：{0}  \n'.format(book.ratingPeople))
+        file.write(' > **我的评论**：{0}  \n'.format(book.comment))
         i = i + 1
     file.close()
 
