@@ -25,7 +25,7 @@ import re
 import sys
 from imp import reload
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontManager
+from matplotlib.font_manager import FontManager, FontProperties
 from pylab import mpl
 import subprocess
 
@@ -34,6 +34,9 @@ import subprocess
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
 
+default_font_path = '/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc'
+#定义自定义字体，文件名从 terminal: fc-list :lang=zh 查看系统中文字体中来
+cn_font = FontProperties(fname=default_font_path)
 
 class BookInfo:
 
@@ -206,9 +209,12 @@ def generate_pie(items, title, savefilename):
 def show_pie(labels, fracs, explode, title, savefilename):
     plt.figure(figsize=(6, 6))
     # ax = plt.axes([0.1, 0.1, 0.8, 0.8])
-    plt.pie(fracs, explode=explode, labels=labels,
+    patches,l_text,p_text=plt.pie(fracs, explode=explode, labels=labels,
             autopct='%1.1f%%', shadow=True)
-    plt.title(title, bbox={'facecolor': '0.8', 'pad': 12})
+    for t in l_text: 
+        t.set_fontproperties(cn_font)
+
+    plt.title(title, bbox={'facecolor': '0.8', 'pad': 12}, fontproperties=cn_font)
     plt.savefig(savefilename)
     # plt.show()
     plt.close()
@@ -387,11 +393,12 @@ def get_matplot_zh_font():
 
 
 def set_matplot_zh_font():
+    # 解决保存图像是负号'-'显示为方块的问题
+    mpl.rcParams['axes.unicode_minus'] = False
+
     available = get_matplot_zh_font()
     if len(available) > 0:
         mpl.rcParams['font.sans-serif'] = [available[0]]    # 指定默认字体
-        # 解决保存图像是负号'-'显示为方块的问题
-        mpl.rcParams['axes.unicode_minus'] = False
 
 
 # =============================================================================
