@@ -279,9 +279,10 @@ def parse_pages(entry_url):
     print('total %d pages' % len(urls))
     return urls
 
-#=============================================================================
+# =============================================================================
 # 程序入口
-#=============================================================================
+# =============================================================================
+
 
 username = 'kesalin'
 current_year_only = True
@@ -294,5 +295,5 @@ if __name__ == '__main__':
     for url in pageUrls:
         parse_page(url, yearBookDict, current_year_only)
 
-    #export
+    # export
     exportToRawdata(yearBookDict)

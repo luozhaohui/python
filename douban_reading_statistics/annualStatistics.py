@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# encoding=utf-8
+#-*- coding: utf-8 -*-
 
 # Author        : kesalin@gmail.com
 # Blog          : http://luozhaohui.github.io
@@ -8,8 +8,8 @@
 # Version       : 1.0.0.0
 # Python Version: Python 3.6
 #
-# sudo apt-get install python-matplotlib
-# sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+# sudo apt-get install python3-matplotlib
+# sudo apt-get install python-numpy python-scipy python3-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 #
 
 # data format:
@@ -18,11 +18,12 @@
 # > Name: [荆棘鸟](https://book.douban.com/subject/1086249/)
 # > Publish: [澳] 考琳·麦卡洛 / 曾胡 / 译林出版社 / 1998-7 / 28.00元
 # > Reading: 三星 2017-09-30 读过 标签: 文学
-# > Comment: 澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。讲述一家三代女人的爱情，单纯的爱，单纯的迷恋，单纯的伤害。翻译很用心很用心。
+# > Comment: 澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。
 
 import os
 import re
 import sys
+from imp import reload
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontManager
 from pylab import mpl
@@ -30,8 +31,8 @@ import subprocess
 
 ##########################################################################
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# reload(sys)
+# sys.setdefaultencoding("utf-8")
 
 
 class BookInfo:
@@ -141,7 +142,7 @@ def output_by_rating(file, index, rating, books):
 
     file.write('### {0} 图书: {1} 本\n'.format(num_to_kanji(rating), count))
 
-    books.sort(cmp=None, key=lambda x: (x.ratingNums, x.tag), reverse=True)
+    books.sort(key=lambda x: (x.ratingNums, x.tag), reverse=True)
     for book in books:
         #print('{0} {1} {2}\n'.format(book.name, book.ratingNums, book.tag))
         file.write('#### No.{0:d} {1}\n'.format(index, book.name))
@@ -165,7 +166,7 @@ def output_by_tag(file, books, index, tag):
 
     file.write('### {0}: {1} 本\n'.format(tag, count))
 
-    books.sort(cmp=None, key=lambda x: (x.ratingNums), reverse=True)
+    books.sort(key=lambda x: (x.ratingNums), reverse=True)
     for book in books:
         #print('{0} {1} {2}\n'.format(book.name, book.ratingNums, book.tag))
         file.write('#### No.{0:d} {1}\n'.format(index, book.name))
@@ -366,17 +367,17 @@ def process(datapath, year):
     analyze_book(books, tags, year)
 
 
-#=============================================================================
+# =============================================================================
 # matplot
-#=============================================================================
+# =============================================================================
 
 def get_matplot_zh_font():
     fm = FontManager()
     mat_fonts = set(f.name for f in fm.ttflist)
-
     output = subprocess.check_output(
         'fc-list :lang=zh -f "%{family}\n"', shell=True)
-    zh_fonts = set(f.split(',', 1)[0] for f in output.split('\n'))
+    output_list = output.decode().split('\n')
+    zh_fonts = set(f.split(',', 1)[0] for f in output_list)
     available = list(mat_fonts & zh_fonts)
 
     print('*' * 10, '可用的字体', '*' * 10)
@@ -393,16 +394,18 @@ def set_matplot_zh_font():
         mpl.rcParams['axes.unicode_minus'] = False
 
 
-#=============================================================================
+# =============================================================================
 # 程序入口
-#=============================================================================
+# =============================================================================
 
 if __name__ == '__main__':
     set_matplot_zh_font()
 
     rootDir = os.path.dirname(os.path.abspath(__file__))
 
-    for year in os.listdir(rootDir):
+    # for year in os.listdir(rootDir):
+    year = '2018'
+    if year:
         path = os.path.join(rootDir, year)
         if os.path.isdir(path):
             pattern = re.compile(r'([0-9]{4})')
