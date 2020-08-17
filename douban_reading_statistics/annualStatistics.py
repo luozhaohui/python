@@ -1,15 +1,15 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# encoding=utf-8
 
 # Author        : kesalin@gmail.com
 # Blog          : http://luozhaohui.github.io
 # Date          : 2016/12/24
 # Description   : Douban Reading Annual Statistics.
 # Version       : 1.0.0.0
-# Python Version: Python 3.6
+# Python Version: Python 3.7.3
 #
-# sudo apt-get install python3-matplotlib
-# sudo apt-get install python-numpy python-scipy python3-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+# sudo apt-get install python-matplotlib
+# sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 #
 
 # data format:
@@ -18,28 +18,26 @@
 # > Name: [荆棘鸟](https://book.douban.com/subject/1086249/)
 # > Publish: [澳] 考琳·麦卡洛 / 曾胡 / 译林出版社 / 1998-7 / 28.00元
 # > Reading: 三星 2017-09-30 读过 标签: 文学
-# > Comment: 澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。
+# > Comment: 澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。讲述一家三代女人的爱情，单纯的爱，单纯的迷恋，单纯的伤害。翻译很用心很用心。
 
 import os
 import re
 import sys
-from imp import reload
+import string
+import datetime
+import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontManager, FontProperties
+from matplotlib.font_manager import FontManager
 from pylab import mpl
 import subprocess
 
-##########################################################################
+############################################################################################################
 
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
 
-default_font_path = '/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc'
-#定义自定义字体，文件名从 terminal: fc-list :lang=zh 查看系统中文字体中来
-cn_font = FontProperties(fname=default_font_path)
 
 class BookInfo:
-
     def __init__(self, name, url, nums, month, tag, comment, publish):
         self.name = name
         self.url = url
@@ -67,18 +65,18 @@ def get_tags_save_png_name(year):
 
 
 def get_raw_data_path(year):
-    return u'{0}/{1}reading_raw.md'.format(str(year), str(year))
+    return u'{0}/{0}reading_raw.md'.format(str(year), str(year))
 
 
 def get_markdown_path(year):
-    return u'{0}/{1}reading.md'.format(str(year), str(year))
+    return u'{0}/{0}reading.md'.format(str(year), str(year))
 
 
 def read_file(path):
     lines = []
 
     if os.path.isfile(path):
-        with open(path, 'r') as handle:
+        with open(path, 'r', encoding='UTF-8') as handle:
             for line in handle.readlines():
                 line = line.strip()
                 if len(line) > 0:
@@ -125,7 +123,7 @@ def output_by_rating_num(file, total, rating, books):
     count = len(books)
     if count > 0:
         file.write(' > {0}图书 {1} 本，占比 {2:2.1f}%  \n'.format(
-            num_to_kanji(rating), count, count * 100.0 / total))
+            num_to_kanji(rating), count, count * 100.0/total))
 
 
 def output_tags(file, tags, total, year):
@@ -153,8 +151,8 @@ def output_by_rating(file, index, rating, books):
         file.write(' > 豆瓣链接：[{0}]({1})  \n'.format(book.url, book.url))
         file.write(' > 出版信息：{0}  \n'.format(book.publish))
         #file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(book.tag, get_spaces(), num_to_kanji(book.ratingNums)))
-        file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(
-            book.tag, get_spaces(), num_to_stars(book.ratingNums)))
+        file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(book.tag,
+                                                       get_spaces(), num_to_stars(book.ratingNums)))
         file.write(' > 我的评论：{0}  \n'.format(book.comment))
         file.write('\n')
         index = index + 1
@@ -177,8 +175,8 @@ def output_by_tag(file, books, index, tag):
         file.write(' > 豆瓣链接：[{0}]({1})  \n'.format(book.url, book.url))
         file.write(' > 出版信息：{0}  \n'.format(book.publish))
         #file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(book.tag, get_spaces(), num_to_kanji(book.ratingNums)))
-        file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(
-            book.tag, get_spaces(), num_to_stars(book.ratingNums)))
+        file.write(' > 标签：{0}{1}评分：**{2}**  \n'.format(book.tag,
+                                                       get_spaces(), num_to_stars(book.ratingNums)))
         file.write(' > 我的评论：{0}  \n'.format(book.comment))
         file.write('\n')
         index = index + 1
@@ -196,7 +194,7 @@ def generate_pie(items, title, savefilename):
     explode = []
     for key, value in items:
         labels.append(u"{0} {1} 本".format(key, value))
-        fracs.append(value * 100.0 / total)
+        fracs.append(value * 100.0/total)
         explode.append(0)
     explode[0] = 0.02
     # for label in labels:
@@ -208,13 +206,10 @@ def generate_pie(items, title, savefilename):
 
 def show_pie(labels, fracs, explode, title, savefilename):
     plt.figure(figsize=(6, 6))
-    # ax = plt.axes([0.1, 0.1, 0.8, 0.8])
-    patches,l_text,p_text=plt.pie(fracs, explode=explode, labels=labels,
+    ax = plt.axes([0.1, 0.1, 0.8, 0.8])
+    plt.pie(fracs, explode=explode, labels=labels,
             autopct='%1.1f%%', shadow=True)
-    for t in l_text: 
-        t.set_fontproperties(cn_font)
-
-    plt.title(title, bbox={'facecolor': '0.8', 'pad': 12}, fontproperties=cn_font)
+    plt.title(title, bbox={'facecolor': '0.8', 'pad': 12})
     plt.savefig(savefilename)
     # plt.show()
     plt.close()
@@ -224,7 +219,7 @@ def analyze_book(books, tags, year):
     path = get_markdown_path(year)
     if os.path.isfile(path):
         os.remove(path)
-    file = open(path, 'a')
+    file = open(path, 'a', encoding='UTF-8')
 
     total = len(books)
 
@@ -239,8 +234,7 @@ def analyze_book(books, tags, year):
     file.write('### 评价统计:\n')
 
     rating_dict = {u"五星": len(rating5), u"四星": len(rating4),
-                   u"三星": len(rating3), u"两星": len(rating2),
-                   u"一星": len(rating1)}
+                   u"三星": len(rating3), u"两星": len(rating2), u"一星": len(rating1)}
     filter_dict = {key: rating_dict[key]
                    for key in rating_dict.keys() if (rating_dict[key] > 0)}
     #items = sorted(filter_dict.iteritems(), key=lambda d:d[1], reverse = True)
@@ -280,7 +274,7 @@ def analyze_book(books, tags, year):
 def is_begin(line):
     pattern = re.compile(r'(##No\.)([0-9]+)(.*)')
     match = pattern.search(line)
-    return match
+    return match != None
 
 
 def is_end(line, index):
@@ -306,7 +300,7 @@ def process(datapath, year):
 
         pattern = re.compile(r'(##No\.)([0-9]+)(.*)')
         match = pattern.search(line)
-        if match:
+        if match != None:
             index = 0
             name = ''
             url = ''
@@ -319,7 +313,7 @@ def process(datapath, year):
 
         pattern = re.compile(r'(> )([a-zA-Z]+)(: )(.*)')
         match = pattern.search(line)
-        if match:
+        if match != None:
             itemName = match.group(2)
             itemContent = match.group(4).strip()
 
@@ -380,10 +374,10 @@ def process(datapath, year):
 def get_matplot_zh_font():
     fm = FontManager()
     mat_fonts = set(f.name for f in fm.ttflist)
+
     output = subprocess.check_output(
         'fc-list :lang=zh -f "%{family}\n"', shell=True)
-    output_list = output.decode().split('\n')
-    zh_fonts = set(f.split(',', 1)[0] for f in output_list)
+    zh_fonts = set(f.split(',', 1)[0] for f in output.split('\n'))
     available = list(mat_fonts & zh_fonts)
 
     print('*' * 10, '可用的字体', '*' * 10)
@@ -393,12 +387,21 @@ def get_matplot_zh_font():
 
 
 def set_matplot_zh_font():
-    # 解决保存图像是负号'-'显示为方块的问题
-    mpl.rcParams['axes.unicode_minus'] = False
+    # For windows: https://www.cnblogs.com/KeenLeung/p/12427022.html
+    # 查找字体路径
+    print(matplotlib.matplotlib_fname())
+    # 查找字体缓存路径
+    print(matplotlib.get_cachedir())
 
-    available = get_matplot_zh_font()
-    if len(available) > 0:
-        mpl.rcParams['font.sans-serif'] = [available[0]]    # 指定默认字体
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['font.serif'] = ['SimHei']
+
+    # For Ubuntu
+    # available = get_matplot_zh_font()
+    # if len(available) > 0:
+    #     mpl.rcParams['font.sans-serif'] = [available[0]]    # 指定默认字体
+    #     # 解决保存图像是负号'-'显示为方块的问题
+    #     mpl.rcParams['axes.unicode_minus'] = False
 
 
 # =============================================================================
@@ -410,9 +413,7 @@ if __name__ == '__main__':
 
     rootDir = os.path.dirname(os.path.abspath(__file__))
 
-    # for year in os.listdir(rootDir):
-    year = '2018'
-    if year:
+    for year in os.listdir(rootDir):
         path = os.path.join(rootDir, year)
         if os.path.isdir(path):
             pattern = re.compile(r'([0-9]{4})')

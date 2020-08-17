@@ -6,58 +6,68 @@
 # Date          : 2016/12/24
 # Description   : Generate douban reading rawdata for statistics.
 # Version       : 1.0.0.0
-# Python Version: Python 3.6
+# Python Version: Python 3.7.3
 
 import os
 import re
+import sys
+import threading
 import time
 import datetime
-import urllib.request
+import string
+import requests
 from bs4 import BeautifulSoup
 
-# 获取 url 内容
-# How to get your cookie?
-# Press F12 in Chrome and read cookie of header under network tab.
-#
-gUseCookie = True
+# 生成Session对象，用于保存Cookie
+s = requests.Session()
+
 gHeaders = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
-    'Cookie': 'll="108296"; bid=2i0iZ3u0n24; _ga=GA1.2.1407926077.1540182587; push_doumail_num=0; __utmc=30149280; __utmv=30149280.129; gr_user_id=de24dfc8-cae4-43c7-951f-a6d7512b0c5a; _vwo_uuid_v2=D157B1BB68592A279BE84CBBEF73CF1D3|c1f345e618c46437e46a22bbc89ecc12; douban-fav-remind=1; __utmz=30149280.1541056982.5.2.utmcsr=bing|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); douban-profile-remind=1; push_noty_num=0; dbcl2="1297475:k97w7MOYTck"; ck=QvJR; ap_v=0,6.0; __utma=30149280.1407926077.1540182587.1545705378.1545709471.65; __utmt=1; gr_session_id_22c937bbd8ebd703f2d8e9445f7dfd03=796ffa69-0430-4bf8-9bc0-97de3db733e8; gr_cs1_796ffa69-0430-4bf8-9bc0-97de3db733e8=user_id%3A1; __utmt_douban=1; gr_session_id_22c937bbd8ebd703f2d8e9445f7dfd03_796ffa69-0430-4bf8-9bc0-97de3db733e8=true; __utmb=30149280.8.10.1545709471'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
 }
+
+def login_douban(username, password):
+    """
+    登录豆瓣
+    :return:
+    """
+    # 登录URL
+    login_url = 'https://accounts.douban.com/j/mobile/login/basic'
+    # 请求头
+    headers = gHeaders;
+    headers['Referer'] = 'https://accounts.douban.com/passport/login?source=main'
+    # 传递用户名和密码
+    data = {
+        'name': username,
+        'password': password,
+        'remember': 'false'
+    }
+    try:
+        r = s.post(login_url, headers=headers, data=data)
+        r.raise_for_status()
+    except:
+        print('登录请求失败')
+        return 0
+    # 打印请求结果
+    # print(r.text)
+    return 1
 
 
 def getHtml(url):
     data = ''
     try:
-        if gUseCookie:
-            opener = urllib.request.build_opener()
-            for k, v in gHeaders.items():
-                opener.addheaders.append((k, v))
-            response = opener.open(url)
-            data = response.read().decode('utf-8')
-        else:
-            request = urllib.request.Request(url, None, gHeaders)
-            response = urllib.request.urlopen(request)
-            data = response.read().decode('utf-8')
-    except urllib.request.URLError as e:
-        if hasattr(e, "code"):
-            print("The server couldn't fulfill the request: " + url)
-            print("Error code: %s" % e.code)
-        elif hasattr(e, "reason"):
-            print("We failed to reach a server. Please check your url: " +
-                  url + ", and read the Reason.")
-            print("Reason: %s" % e.reason)
+        r = s.get(url, headers=gHeaders)
+        r.raise_for_status()
+        data = r.text
+    except:
+        print("We failed to reach a server. Please check your url: " +
+              url + ", and read the Reason.")
     return data
 
-
 def slow_down():
-    time.sleep(0.5)         # slow down a little
+    time.sleep(2)         # slow down a little
 
 # 书籍信息类
-
-
 class BookInfo:
-
     def __init__(self, name, url, icon, publish, reading, comment):
         self.name = name
         self.url = url
@@ -76,48 +86,45 @@ def num_to_kanji(num):
         return ""
 
 
-def parse_item_info(item, yearBookDict, currentYearOnly):
-    # print(item.prettify())
-
-    now = datetime.date.today()
-    currentYear = now.year
+def parse_item_info(item, yearBookDict, currentYear):
+    # print(item.prettify().encode('utf-8'))
 
     # get book name and url
     name = ''
     url = ''
     content = item.find("div", "info")
-    if content:
+    if content != None:
         link = content.find("a")
-        if link:
-            url = link.get('href').strip()
-            name = link.get('title').strip()
-    # print(" > name: {0}".format(name))
-    # print(" > url: {0}".format(url))
+        if link != None:
+            url = link.get('href').strip().encode('utf-8')
+            name = link.get('title').strip().encode('utf-8')
+    #print(" > name: {0}".format(name))
+    #print(" > url: {0}".format(url))
 
     # get book icon
     image = ''
     content = item.find("div", "pic")
-    if content:
+    if content != None:
         link = content.find("img")
-        if link:
-            image = link.get("src").strip()
-    # print(" > image: {0}".format(image))
+        if link != None:
+            image = link.get("src").strip().encode('utf-8')
+    #print(" > image: {0}".format(image))
 
     # get book publish
     publish = ''
     content = item.find("div", "pub")
-    if content:
-        if content.string:
-            publish = content.string.strip()
-    # print(" > publish: {0}".format(publish))
+    if content != None:
+        if content.string != None:
+            publish = content.string.strip().encode('utf-8')
+    #print(" > publish: {0}".format(publish))
 
     # get book comment
     comment = ''
     content = item.find("p", "comment")
-    if content:
-        if content.string:
-            comment = content.string.strip()
-    # print(" > comment: {0}".format(comment))
+    if content != None:
+        if content.string != None:
+            comment = content.string.strip().encode('utf-8')
+    #print(" > comment: {0}".format(comment))
 
     # get book reading data
     date = ''
@@ -125,9 +132,9 @@ def parse_item_info(item, yearBookDict, currentYearOnly):
     star = ''
     year = ''
     content = item.find("span", "date")
-    if content:
-        if content.string:
-            date = content.string.strip().replace('\n', '')
+    if content != None:
+        if content.string != None:
+            date = content.string.strip().encode('utf-8').replace('\n', '')
             parts = date.split(' ')
             date = ''
             for part in parts:
@@ -138,24 +145,24 @@ def parse_item_info(item, yearBookDict, currentYearOnly):
             match = pattern.search(date)
             if match:
                 year = match.group(1)
-    # print(" > date: {0}".format(date))
+    #print(" > date: {0}".format(date))
 
-    if True == currentYearOnly:
+    if currentYear != None:
         readYear = int(year)
         if readYear < currentYear:
             return False
 
     content = item.find("span", "tags")
-    if content:
-        if content.string:
-            tags = content.string.strip()
-        # print(" > tags: {0}".format(tags))
+    if content != None:
+        if content.string != None:
+            tags = content.string.strip().encode('utf-8')
+    #print(" > tags: {0}".format(tags))
 
         p = content.parent
         for child in p.find_all("span"):
             cls = child.get("class")
-            if cls and len(cls) > 0:
-                clsStr = cls[0].strip()
+            if cls != None and len(cls) > 0:
+                clsStr = cls[0].strip().encode('utf-8')
                 pattern = re.compile(r'(rating)([0-9])(.*)')
                 match = pattern.search(clsStr)
                 if match:
@@ -167,7 +174,7 @@ def parse_item_info(item, yearBookDict, currentYearOnly):
 
     # add book info to list
     bookInfo = BookInfo(name, url, image, publish, reading, comment)
-    if year in yearBookDict:
+    if yearBookDict.has_key(year):
         books = yearBookDict[year]
         contains = [book for book in books if book.url == url]
         if len(contains) == 0:
@@ -211,32 +218,37 @@ def create_directory_if_not_exists(directory):
         os.makedirs(directory)
 
 
-def parse_page(url, yearBookDict, currentYearOnly):
+def parse_page(url, yearBookDict, currentYear):
     try:
         slow_down()
         page = getHtml(url)
         soup = BeautifulSoup(page, "lxml")
 
+        # print("======================================================")
+        # print("==== {} ====".format(url))
+        # print(soup.prettify())
+
         items = soup.find_all("li", "subject-item")
         for item in items:
-            proceed = parse_item_info(item, yearBookDict, currentYearOnly)
+            proceed = parse_item_info(item, yearBookDict, currentYear)
             if False == proceed:
-                break
+                return False
     except Exception as e:
         print("failed to parse page : {0}".format(url))
         print(e)
+
+    return True
 
 
 def parse_pages(entry_url):
     page = getHtml(entry_url)
     soup = BeautifulSoup(page, 'html.parser')
 
-    # https://book.douban.com/people/kesalin/collect?start=45&sort=time&rating=all&filter=all&mode=grid
     urls = []
     paginator = soup.find('div', 'paginator')
-    if paginator:
-        nextItem = paginator.find('span', 'next')
-        if not nextItem:
+    if paginator != None:
+        next = paginator.find('span', 'next')
+        if next == None:
             urls.append(entry_url)
             return urls
 
@@ -245,9 +257,9 @@ def parse_pages(entry_url):
         p1 = ''
         p2 = ''
         p4 = ''
-        nextLink = nextItem.find('a')
-        if nextLink:
-            href = nextLink['href']
+        nextLink = next.find('a')
+        if nextLink != None:
+            href = nextLink['href'].encode('utf-8')
             pattern = re.compile(r'(.*)(start=)([0-9]+)(.*)')
             match = pattern.search(href)
             if match:
@@ -256,12 +268,9 @@ def parse_pages(entry_url):
                 p4 = match.group(4)
                 pageStep = int(match.group(3))
 
-        # print(" >>> href: {}".format(href))
-        # print(" >>> p1: {}".format(p1))
-
         links = paginator.find_all('a')
         for link in links:
-            href = link['href']
+            href = link['href'].encode('utf-8')
             pattern = re.compile(r'(.*)(start=)([0-9]+)(.*)')
             match = pattern.search(href)
             if match:
@@ -273,7 +282,9 @@ def parse_pages(entry_url):
               (lastPageStart, pageStep))
         for i in range(0, lastPageStart + 1, pageStep):
             url = 'https://book.douban.com{0}{1}{2}{3}'.format(p1, p2, i, p4)
-            #print(" page start at %d : %s" % (i, url))
+            print(" page start at %d : %s" % (i, url))
+            # if i >= 60:
+            #     break
             urls.append(url)
 
     print('total %d pages' % len(urls))
@@ -284,16 +295,30 @@ def parse_pages(entry_url):
 # =============================================================================
 
 
-username = 'kesalin'
+username = 'your_username'
+password = 'your_password'
 current_year_only = True
 
 if __name__ == '__main__':
-    entry_url = 'https://book.douban.com/people/{0}/collect'.format(username)
-    pageUrls = parse_pages(entry_url)
+    if login_douban(username, password):
+        entry_url = 'https://book.douban.com/people/{0}/collect'.format(
+            username)
+        pageUrls = parse_pages(entry_url)
 
-    yearBookDict = {}
-    for url in pageUrls:
-        parse_page(url, yearBookDict, current_year_only)
+        currentYear = None
+        # currentYear = 2019
+        if currentYear is None and current_year_only:
+            now = datetime.date.today()
+            currentYear = now.year
 
-    # export
-    exportToRawdata(yearBookDict)
+        yearBookDict = {}
+        for url in pageUrls:
+            ret = parse_page(url, yearBookDict, currentYear)
+            if not ret:
+                break
+
+        # export
+        exportToRawdata(yearBookDict)
+
+    else:
+        print("Failed to login ...")

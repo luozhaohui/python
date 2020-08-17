@@ -18,44 +18,74 @@ import re
 import string
 import urllib2
 import math
+import requests
 
 from threading import Thread
 from Queue import Queue
 from bs4 import BeautifulSoup
 
-# 获取 url 内容
-gUseCookie = True
+
+username = 'your_username'  # 填写你的豆瓣账号用户名
+password = 'your_password'  # 填写你的豆瓣账号密码
+
+# 生成Session对象，用于保存Cookie
+session = requests.Session()
+
 gHeaders = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
-    'Cookie': 'Put your cookie here'
 }
 
 
-def getHtml(url):
+def login_douban(username, password):
+    """
+    登录豆瓣
+    :return:
+    """
+    # 登录URL
+    login_url = 'https://accounts.douban.com/j/mobile/login/basic'
+    # 请求头
+    headers = gHeaders
+    headers['Referer'] = 'https://accounts.douban.com/passport/login?source=main'
+    # 传递用户名和密码
+    data = {
+        'name': username,
+        'password': password,
+        'remember': 'false'
+    }
     try:
-        if gUseCookie:
-            opener = urllib2.build_opener()
-            for k, v in gHeaders.items():
-                opener.addheaders.append((k, v))
-            response = opener.open(url)
-            data = response.read().decode('utf-8')
-        else:
-            request = urllib2.Request(url, None, gHeaders)
-            response = urllib2.urlopen(request)
-            data = response.read().decode('utf-8')
-    except urllib2.URLError as e:
-        if hasattr(e, "code"):
-            print("The server couldn't fulfill the request: " + url)
-            print("Error code: %s" % e.code)
-        elif hasattr(e, "reason"):
-            print("We failed to reach a server. Please check your url: " +
-                  url + ", and read the Reason.")
-            print("Reason: %s" % e.reason)
+        r = session.post(login_url, headers=headers, data=data)
+        r.raise_for_status()
+    except:
+        print('登录请求失败')
+        return 0
+    # 打印请求结果
+    # print(r.text)
+    return 1
+
+
+def getHtml(url):
+    """
+    获取 url 内容
+    """
+    data = ''
+    try:
+        r = session.get(url, headers=gHeaders)
+        r.raise_for_status()
+        data = r.text
+    except:
+        print("We failed to reach a server. Please check your url: " +
+              url + ", and read the Reason.")
     return data
 
 
-# 书籍信息类
+def slow_down():
+    time.sleep(1)         # slow down a little: 1 seconds
+
+
 class BookInfo:
+    """
+    书籍信息类
+    """
 
     def __init__(self, name, url, icon, num, people, comment):
         self.name = name
@@ -194,9 +224,9 @@ def parseItemInfo(tag, minNum, maxNum, k, page, bookInfos):
             tag, minNum, maxNum, k, ratingNum, ratingPeople)
         bookInfos.append(bookInfo)
 
-#=============================================================================
+# =============================================================================
 # 生产者-消费者模型
-#=============================================================================
+# =============================================================================
 
 
 class Producer(Thread):
@@ -364,9 +394,9 @@ def process(tags, ignore):
     exportToMarkdown(tagList[0], topBooks, total)
     return books
 
-#=============================================================================
+# =============================================================================
 # 排序算法
-#=============================================================================
+# =============================================================================
 
 
 def computeCompositeRating(tag, minNum, maxNum, k, num, people):
@@ -389,10 +419,11 @@ def computeCompositeRating(tag, minNum, maxNum, k, num, people):
     else:
         return (num * 90 + peopleWeight * 10) / 100.0
 
-#=============================================================================
+
+# =============================================================================
 # 程序入口：抓取指定标签的书籍
-#=============================================================================
-if __name__ == '__main__':
+# =============================================================================
+def run_spider():
     # blacklist
     classicBL = ["新概念英语", "大明宫词", "费恩曼物理学讲义", "经济学原理"]
     japanLibBL = ["苍井优", "知日", "杉浦康平", "设计中的设计", "我的造梦之路",
@@ -482,3 +513,10 @@ if __name__ == '__main__':
 
     elapsed = timeit.default_timer() - start
     print("== 总耗时 %.2f 秒 ==" % (elapsed))
+
+
+if __name__ == '__main__':
+    if login_douban(username, password):
+        run_spider()
+    else:
+        print("登录失败：错误的用户名或者密码。")

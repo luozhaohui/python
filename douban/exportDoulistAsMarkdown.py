@@ -6,8 +6,10 @@
 # Date          : 2016/07/13
 # Description   : 将豆列导出为 Markdown 文件，多线程版本.
 # Version       : 1.0.0.0
-# Python Version: Python 2.7.3
+# Python Version: Python 3.7.3
 #
+# pip3 install requests
+# pip3 install beautifulsoup4
 
 import os
 import math
@@ -16,42 +18,65 @@ import timeit
 import datetime
 import re
 import string
-import urllib2
+import requests
 
 from threading import Thread
-from Queue import Queue
+from queue import Queue
 from bs4 import BeautifulSoup
 
+username = 'your_username'  # 填写你的豆瓣账号用户名
+password = 'your_password'  # 填写你的豆瓣账号密码
+doulist_url = "https://www.douban.com/doulist/1133232/"     # 豆列链接
 
-# 获取 url 内容
-gUseCookie = True
+# 生成Session对象，用于保存Cookie
+session = requests.Session()
+
 gHeaders = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
-    'Cookie': 'Put your cookie here'
 }
 
 
-def getHtml(url):
+def login_douban(username, password):
+    """
+    登录豆瓣
+    :return:
+    """
+    # 登录URL
+    login_url = 'https://accounts.douban.com/j/mobile/login/basic'
+    # 请求头
+    headers = gHeaders
+    headers['Referer'] = 'https://accounts.douban.com/passport/login?source=main'
+    # 传递用户名和密码
+    data = {
+        'name': username,
+        'password': password,
+        'remember': 'false'
+    }
     try:
-        if gUseCookie:
-            opener = urllib2.build_opener()
-            for k, v in gHeaders.items():
-                opener.addheaders.append((k, v))
-            response = opener.open(url)
-            data = response.read().decode('utf-8')
-        else:
-            request = urllib2.Request(url, None, gHeaders)
-            response = urllib2.urlopen(request)
-            data = response.read().decode('utf-8')
-    except urllib2.URLError as e:
-        if hasattr(e, "code"):
-            print("The server couldn't fulfill the request: " + url)
-            print("Error code: %s" % e.code)
-        elif hasattr(e, "reason"):
-            print("We failed to reach a server. Please check your url: " +
-                  url + ", and read the Reason.")
-            print("Reason: %s" % e.reason)
+        r = session.post(login_url, headers=headers, data=data)
+        r.raise_for_status()
+    except:
+        print('登录请求失败')
+        return 0
+    # 打印请求结果
+    # print(r.text)
+    return 1
+
+
+def getHtml(url):
+    data = ''
+    try:
+        r = session.get(url, headers=gHeaders)
+        r.raise_for_status()
+        data = r.text
+    except:
+        print("We failed to reach a server. Please check your url: " +
+              url + ", and read the Reason.")
     return data
+
+
+def slow_down():
+    time.sleep(2)         # slow down a little: 2 seconds
 
 # 书籍信息类
 
@@ -99,18 +124,6 @@ class BookInfo:
 
         return self.compositeRating
 
-    def __sortByCompositeRating(self, other):
-        val = self.getCompositeRating() - other.getCompositeRating()
-        if val < 0:
-            return 1
-        elif val > 0:
-            return -1
-        else:
-            return 0
-
-    def __cmp__(self, other):
-        return self.__sortByCompositeRating(other)
-
 
 # 导出为 Markdown 格式文件
 def exportToMarkdown(doulistTile, doulistAbout, bookInfos):
@@ -120,21 +133,22 @@ def exportToMarkdown(doulistTile, doulistAbout, bookInfos):
 
     today = datetime.datetime.now()
     todayStr = today.strftime('%Y-%m-%d %H:%M:%S %z')
-    file = open(path, 'a')
-    file.write('## {0}\n'.format(doulistTile))
-    file.write('{0}\n'.format(doulistAbout))
-    file.write('## 图书列表\n')
-    file.write('### 总计 {0} 本，更新时间：{1}\n'.format(len(bookInfos), todayStr))
-    i = 0
-    for book in bookInfos:
-        file.write('\n### No.{0:d} {1}\n'.format(i + 1, book.name))
-        file.write(' > **图书名称**： [{0}]({1})  \n'.format(book.name, book.url))
-        file.write(' > **豆瓣链接**： [{0}]({1})  \n'.format(book.url, book.url))
-        file.write(' > **豆瓣评分**： {0}  \n'.format(book.ratingNum))
-        file.write(' > **评分人数**： {0} 人  \n'.format(book.ratingPeople))
-        file.write(' > **我的评论**： {0}  \n'.format(book.comment))
-        i = i + 1
-    file.close()
+    with open(path, 'a', encoding='UTF-8') as file:
+        file.write('## {0}\n'.format(doulistTile))
+        file.write('{0}\n'.format(doulistAbout))
+        file.write('## 图书列表\n')
+        file.write('### 总计 {0} 本，更新时间：{1}\n'.format(len(bookInfos), todayStr))
+        i = 0
+        for book in bookInfos:
+            file.write('\n### No.{0:d} {1}\n'.format(i + 1, book.name))
+            file.write(
+                ' > **图书名称**： [{0}]({1})  \n'.format(book.name, book.url))
+            file.write(
+                ' > **豆瓣链接**： [{0}]({1})  \n'.format(book.url, book.url))
+            file.write(' > **豆瓣评分**： {0}  \n'.format(book.ratingNum))
+            file.write(' > **评分人数**： {0} 人  \n'.format(book.ratingPeople))
+            file.write(' > **我的评论**： {0}  \n'.format(book.comment))
+            i = i + 1
 
 
 # 解析图书信息
@@ -142,7 +156,7 @@ def parseItemInfo(page, bookInfos):
     soup = BeautifulSoup(page, 'html.parser')
     items = soup.find_all("div", "doulist-item")
     for item in items:
-        # print(item.prettify().encode('utf-8'))
+        # print(item.prettify())
 
         # get book name
         bookName = ''
@@ -150,7 +164,7 @@ def parseItemInfo(page, bookInfos):
         if content:
             href = content.find("a")
             if href and href.string:
-                bookName = href.string.strip().encode('utf-8')
+                bookName = href.string.strip()
         #print(" > name: {0}".format(bookName))
 
         # get book url and icon
@@ -160,31 +174,35 @@ def parseItemInfo(page, bookInfos):
         if content:
             tag = content.find('a')
             if tag:
-                bookUrl = tag['href'].encode('utf-8')
+                bookUrl = tag['href']
             tag = content.find('img')
             if tag:
-                bookImage = tag['src'].encode('utf-8')
+                bookImage = tag['src']
         #print(" > url: {0}, image: {1}".format(bookUrl, bookImage))
 
         # get rating
         ratingNum = 0.0
         ratingPeople = 0
         contents = item.find("div", "rating")
-        for content in contents:
-            if content.name and content.string:
-                if content.get("class"):
-                    ratingStr = content.string.strip().encode('utf-8')
-                    if len(ratingStr) > 0:
-                        ratingNum = float(ratingStr)
-                else:
-                    ratingStr = content.string.strip().encode('utf-8')
-                    pattern = re.compile(r'(\()([0-9]*)(.*)(\))')
-                    match = pattern.search(ratingStr)
-                    if match:
-                        ratingStr = match.group(2).strip()
+        if contents:
+            for content in contents:
+                if content.name and content.string:
+                    if content.get("class"):
+                        ratingStr = content.string.strip()
                         if len(ratingStr) > 0:
-                            ratingPeople = int(ratingStr)
-        #print(" > ratingNum: {0}, ratingPeople: {1}".format(ratingNum, ratingPeople))
+                            ratingNum = float(ratingStr)
+                    else:
+                        ratingStr = content.string.strip()
+                        pattern = re.compile(r'(\()([0-9]*)(.*)(\))')
+                        match = pattern.search(ratingStr)
+                        if match:
+                            ratingStr = match.group(2).strip()
+                            if len(ratingStr) > 0:
+                                ratingPeople = int(ratingStr)
+            print(" > ratingNum: {0}, ratingPeople: {1}".format(
+                ratingNum, ratingPeople))
+        else:
+            print("No rating data for {}".format(bookUrl))
 
         # get comment
         comment = ''
@@ -192,7 +210,7 @@ def parseItemInfo(page, bookInfos):
         if content:
             for child in content.contents:
                 if not child.name and child.string:
-                    comment = child.string.strip().encode('utf-8')
+                    comment = child.string.strip()
         #print(" > comment: {0}".format(comment))
 
         # add book info to list
@@ -201,9 +219,9 @@ def parseItemInfo(page, bookInfos):
         bookInfos.append(bookInfo)
 
 
-#=============================================================================
+# =============================================================================
 # 生产者-消费者模型
-#=============================================================================
+# =============================================================================
 gQueue = Queue(20)
 gBookInfos = []
 
@@ -254,13 +272,13 @@ def parse(url):
     producers = []
 
     # get first page of doulist
-    page = getHtml(gDoulistUrl)
+    page = getHtml(url)
 
     # get url of other pages in doulist
     soup = BeautifulSoup(page, 'html.parser')
 
     # get doulist title
-    doulistTile = soup.html.head.title.string.encode('utf-8')
+    doulistTile = soup.html.head.title.string
     print(" > 获取豆列：" + doulistTile)
 
     # get doulist about
@@ -269,7 +287,7 @@ def parse(url):
     if content:
         for child in content.children:
             if child.string:
-                htmlContent = child.string.strip().encode('utf-8')
+                htmlContent = child.string.strip()
                 doulistAbout = "{0}\n{1}".format(doulistAbout, htmlContent)
     #print("doulist about:" + doulistAbout)
 
@@ -281,7 +299,7 @@ def parse(url):
         for child in content.children:
             if child.name == 'a':
                 pattern = re.compile(r'(start=)([0-9]*)(.*)(&sort=)')
-                match = pattern.search(child['href'].encode('utf-8'))
+                match = pattern.search(child['href'])
                 if match:
                     index = int(match.group(2))
                     if nextPageStart > index:
@@ -305,6 +323,7 @@ def parse(url):
         producer = Producer('Producer_{0:d}'.format(pageStart), pageUrl)
         producer.start()
         producers.append(producer)
+        slow_down()
 
     # wait for all producers
     for producer in producers:
@@ -316,7 +335,9 @@ def parse(url):
     consumer.join()
 
     # sort
-    books = sorted(gBookInfos)
+    # books = sorted(gBookInfos, key=lambda x: x.ratingNum, reverse=True)
+    books = sorted(
+        gBookInfos, key=lambda x: x.getCompositeRating(), reverse=True)
 
     # export to markdown
     exportToMarkdown(doulistTile, doulistAbout, books)
@@ -326,10 +347,13 @@ def parse(url):
     elapsed = timeit.default_timer() - start
     print(" > 共获取 {0} 本图书信息，耗时 {1} 秒".format(total, elapsed))
 
-#=============================================================================
+
+# =============================================================================
 # 程序入口：解析指定豆列
-#=============================================================================
-gDoulistUrl = "https://www.douban.com/doulist/1133232/"
+# =============================================================================
 
 if __name__ == '__main__':
-    parse(gDoulistUrl)
+    if login_douban(username, password):
+        parse(doulist_url)
+    else:
+        print("登录失败：错误的用户名或者密码。")
