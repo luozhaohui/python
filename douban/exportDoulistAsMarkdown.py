@@ -2,14 +2,14 @@
 #! encoding=utf-8
 
 # Author        : kesalin@gmail.com
-# Blog          : http://kesalin.github.io
+# Blog          : http://luozhaohui.github.io
 # Date          : 2016/07/13
 # Description   : 将豆列导出为 Markdown 文件，多线程版本.
 # Version       : 1.0.0.0
 # Python Version: Python 3.7.3
 #
-# pip3 install requests
-# pip3 install beautifulsoup4
+# pip install requests
+# pip install beautifulsoup4
 
 import os
 import math
@@ -76,7 +76,7 @@ def getHtml(url):
 
 
 def slow_down():
-    time.sleep(2)         # slow down a little: 2 seconds
+    time.sleep(2)         # slow down a little
 
 # 书籍信息类
 
@@ -356,4 +356,4 @@ if __name__ == '__main__':
     if login_douban(username, password):
         parse(doulist_url)
     else:
-        print("登录失败：错误的用户名或者密码。")
+        print("Invalid username or password.")

@@ -2,11 +2,11 @@
 #! encoding=utf-8
 
 # Author        : kesalin@gmail.com
-# Blog          : http://kesalin.github.io
+# Blog          : http://luozhaohui.github.io
 # Date          : 2016/07/13
 # Description   : 抓取豆瓣上指定标签的书籍并导出为 Markdown 文件，多线程版本.
 # Version       : 1.0.0.0
-# Python Version: Python 2.7.3
+# Python Version: Python 3.7.3
 # Python Queue  : https://docs.python.org/2/library/queue.html
 # Beautiful Soup: http://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#
 
@@ -16,14 +16,13 @@ import timeit
 import datetime
 import re
 import string
-import urllib2
 import math
+import json
 import requests
+import queue
 
 from threading import Thread
-from Queue import Queue
-from bs4 import BeautifulSoup
-
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 username = 'your_username'  # 填写你的豆瓣账号用户名
 password = 'your_password'  # 填写你的豆瓣账号密码
@@ -64,9 +63,6 @@ def login_douban(username, password):
 
 
 def getHtml(url):
-    """
-    获取 url 内容
-    """
     data = ''
     try:
         r = session.get(url, headers=gHeaders)
@@ -79,13 +75,13 @@ def getHtml(url):
 
 
 def slow_down():
-    time.sleep(1)         # slow down a little: 1 seconds
+    time.sleep(2)         # slow down a little
 
 
 # 书籍信息类
 class BookInfo:
 
-    def __init__(self, name, url, icon, num, people, comment):
+    def __init__(self, name, url, icon, num, people, comment, ISBN=''):
         self.name = name
         self.url = url
         self.icon = icon
@@ -93,6 +89,7 @@ class BookInfo:
         self.ratingPeople = people
         self.comment = comment
         self.compositeRating = num
+        self.ISBN = ISBN
 
     def __hash__(self):
         return hash(self.url)
@@ -136,6 +133,7 @@ def exportToMarkdown(filename, books, total):
     i = 0
     for book in books:
         file.write('\n### No.{0:d} {1}\n'.format(i + 1, book.name))
+        file.write(' > **ISBN**： {0}  \n'.format(book.ISBN))
         file.write(' > **图书名称**： [{0}]({1})  \n'.format(book.name, book.url))
         file.write(' > **豆瓣链接**： [{0}]({1})  \n'.format(book.url, book.url))
         file.write(' > **豆瓣评分**： {0}  \n'.format(book.ratingNum))
@@ -144,9 +142,20 @@ def exportToMarkdown(filename, books, total):
         i = i + 1
     file.close()
 
+    path = "{}.json".format(filename)
+    if(os.path.isfile(path)):
+        os.remove(path)
+
+    books_dict = {}
+    for book in books:
+        if len(book.ISBN) > 0:
+            books_dict[book.ISBN] = book.name
+    file = open(path, 'w')
+    json.dump(books_dict, file)
+    file.close()
+
+
 # 解析图书信息
-
-
 def parseItemInfo(minNum, maxNum, k, page, bookInfos):
     soup = BeautifulSoup(page, 'html.parser')
 
@@ -155,9 +164,9 @@ def parseItemInfo(minNum, maxNum, k, page, bookInfos):
     bookImage = ''
     tag = soup.find("a", 'nbg')
     if tag:
-        bookName = tag['title'].strip().encode('utf-8')
-        bookImage = tag['href'].encode('utf-8')
-    #print(" > name: {0}, bookImage: {1}".format(bookName, bookImage))
+        bookName = tag['title'].strip()
+        bookImage = tag['href']
+    print(" > name: {0}, bookImage: {1}".format(bookName, bookImage))
 
     # get description
     description = ''
@@ -166,7 +175,7 @@ def parseItemInfo(minNum, maxNum, k, page, bookInfos):
         deses = content.find_all('p')
         for des in deses:
             if des and des.string:
-                intro = des.string.strip().encode('utf-8')
+                intro = des.string.strip()
                 description = description + intro
     #print(" > description: {0}".format(description))
 
@@ -176,9 +185,28 @@ def parseItemInfo(minNum, maxNum, k, page, bookInfos):
     if content:
         tag = content.find("a")
         if tag:
-            bookUrl = tag['href'].encode('utf-8')
+            bookUrl = tag['href']
             bookUrl = bookUrl.replace('/new_offer', '/')
     #print(" > url: {0}".format(bookUrl))
+
+    # get ISBN
+    isbn = ''
+    content = soup.find("div", "subject clearfix")
+    if content:
+        brs = content.find_all('br')
+        for br in brs:
+            span = br.find("span")
+            if span and span.string:
+                span_str = span.string.strip()
+                if span_str == 'ISBN:':
+                    if br.contents:
+                        for sub in br.contents:
+                            if isinstance(sub, NavigableString):
+                                sub_str = "{}".format(
+                                    sub).strip()
+                                if len(sub_str) > 0:
+                                    # print("sub: {}".format(sub_str))
+                                    isbn = sub_str
 
     ratingNum = 0.0
     ratingPeople = 0
@@ -186,21 +214,21 @@ def parseItemInfo(minNum, maxNum, k, page, bookInfos):
     if content:
         tag = content.find("strong", "ll rating_num ")
         if tag and tag.string:
-            ratingStr = tag.string.strip().encode('utf-8')
+            ratingStr = tag.string.strip()
             if len(ratingStr) > 0:
                 ratingNum = float(ratingStr)
     content = soup.find("a", "rating_people")
     if content:
         tag = content.find('span')
         if tag:
-            ratingStr = tag.string.strip().encode('utf-8')
+            ratingStr = tag.string.strip()
             if len(ratingStr) > 0:
                 ratingPeople = int(ratingStr)
     #print(" > ratingNum: {0}, ratingPeople: {1}".format(ratingNum, ratingPeople))
 
     # add book info to list
     bookInfo = BookInfo(bookName, bookUrl, bookImage,
-                        ratingNum, ratingPeople, description)
+                        ratingNum, ratingPeople, description, isbn)
     bookInfo.compositeRating = computeCompositeRating(
         minNum, maxNum, k, ratingNum, ratingPeople)
     bookInfos.append(bookInfo)
@@ -210,7 +238,7 @@ def parseItemUrlInfo(page, urls):
     soup = BeautifulSoup(page, 'html.parser')
     items = soup.find_all("li", "subject-item")
     for item in items:
-        # print(item.prettify().encode('utf-8'))
+        # print(item.prettify())
 
         # get item url
         url = ''
@@ -218,8 +246,8 @@ def parseItemUrlInfo(page, urls):
         if content:
             tag = content.find('a')
             if tag:
-                url = tag['href'].encode('utf-8')
-        #print(" > url: {0}".format(url))
+                url = tag['href']
+        print(" > url: {0}".format(url))
         urls.append(url)
 
 # =============================================================================
@@ -301,7 +329,7 @@ def spider(username, minNum, maxNum, k):
     start = timeit.default_timer()
 
     # all producers
-    queue = Queue(20)
+    q = queue.Queue(20)
     bookInfos = []
     producers = []
 
@@ -314,14 +342,17 @@ def spider(username, minNum, maxNum, k):
         # get url of other pages in doulist
         soup = BeautifulSoup(page, 'html.parser')
         content = soup.find("div", "paginator")
-        # print(content.prettify().encode('utf-8'))
+        # print(content.prettify())
+        if content is None:
+            print("failed to request {}".format(wishUrl))
+            return
 
         nextPageStart = 100000
         lastPageStart = 0
         for child in content.children:
             if child.name == 'a':
                 pattern = re.compile(r'(start=)([0-9]*)(.*)(&sort=)')
-                match = pattern.search(child['href'].encode('utf-8'))
+                match = pattern.search(child['href'])
                 if match:
                     index = int(match.group(2))
                     if nextPageStart > index:
@@ -330,23 +361,22 @@ def spider(username, minNum, maxNum, k):
                         lastPageStart = index
 
         # process current page
-        queue.put(page)
+        q.put(page)
 
         urls = []
         # create consumer
-        consumer = ParseItemUrlConsumer('ParseItemUrlConsumer', queue, urls)
+        consumer = ParseItemUrlConsumer('ParseItemUrlConsumer', q, urls)
         consumer.start()
 
         # create parge item url producers
         # producers = []
         for pageStart in range(nextPageStart, lastPageStart + nextPageStart, nextPageStart):
-            pageUrl = "https://book.douban.com/people/kesalin/wish?start={0:d}&sort=time&rating=all&filter=all&mode=grid".format(
-                pageStart)
-            producer = Producer('Producer_{0:d}'.format(
-                pageStart), pageUrl, queue)
+            pageUrl = "https://book.douban.com/people/{}/wish?start={:d}&sort=time&rating=all&filter=all&mode=grid".format(
+                username, pageStart)
+            producer = Producer('Producer_{0:d}'.format(pageStart), pageUrl, q)
             producer.start()
             producers.append(producer)
-            #print(" > process page : {0}".format(pageUrl))
+            print(" > process page : {0}".format(pageUrl))
             slow_down()
 
         # wait for all producers
@@ -355,25 +385,26 @@ def spider(username, minNum, maxNum, k):
 
         # wait for consumer
         consumer.stop()
-        queue.put(None)
+        q.put(None)
         consumer.join()
 
         urls = list(set(urls))
-        bookQueue = Queue(20)
-        producers.clear()
+        bookQueue = queue.Queue(20)
+        # producers.clear()
+        producers[:] = []
 
         # create parse item consumer
         consumer = Consumer('Consumer', minNum, maxNum,
                             k, bookQueue, bookInfos)
         consumer.start()
 
-        print(" urls: ", len(urls))
+        print(" page urls: ", len(urls))
         # create parge item producers
         for url in urls:
             producer = Producer(url, url, bookQueue)
             producer.start()
             producers.append(producer)
-            #print(" > process item : {0}".format(url))
+            print(" > process item : {0}".format(url))
             slow_down()
 
         # wait for all producers
@@ -382,7 +413,7 @@ def spider(username, minNum, maxNum, k):
 
         # wait for consumer
         consumer.stop()
-        queue.put(None)
+        q.put(None)
         consumer.join()
 
         # summrise
@@ -438,14 +469,17 @@ def computeCompositeRating(minNum, maxNum, k, num, people):
 # =============================================================================
 # 程序入口：抓取指定标签的书籍
 # =============================================================================
+def run_spider():
+    start = timeit.default_timer()
+
+    process(username, 30, 3000, 0.25)
+
+    elapsed = timeit.default_timer() - start
+    print("== 总耗时 %.2f 秒 ==" % (elapsed))
+
+
 if __name__ == '__main__':
     if login_douban(username, password):
-        start = timeit.default_timer()
-
-        username = 'kesalin'
-        process(username, 30, 3000, 0.25)
-
-        elapsed = timeit.default_timer() - start
-        print("== 总耗时 %.2f 秒 ==" % (elapsed))
+        run_spider()
     else:
-        print("登录失败：错误的用户名或者密码。")
+        print("Invalid username or password.")

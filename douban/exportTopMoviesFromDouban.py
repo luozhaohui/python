@@ -2,12 +2,11 @@
 #! encoding=utf-8
 
 # Author        : kesalin@gmail.com
-# Blog          : http://kesalin.github.io
+# Blog          : http://luozhaohui.github.io
 # Date          : 2016/07/13
 # Description   : 抓取豆瓣上指定标签的电影并导出为 Markdown 文件，多线程版本.
 # Version       : 1.0.0.0
-# Python Version: Python 2.7.3
-# Python Queue  : https://docs.python.org/2/library/queue.html
+# Python Version: Python 3.7.3
 # Beautiful Soup: http://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#
 
 import os
@@ -15,12 +14,11 @@ import time
 import timeit
 import datetime
 import re
-import urllib2
 import math
+import queue
 import requests
 
 from threading import Thread
-from Queue import Queue
 from bs4 import BeautifulSoup
 
 username = 'your_username'  # 填写你的豆瓣账号用户名
@@ -62,9 +60,6 @@ def login_douban(username, password):
 
 
 def getHtml(url):
-    """
-    获取 url 内容
-    """
     data = ''
     try:
         r = session.get(url, headers=gHeaders)
@@ -77,7 +72,7 @@ def getHtml(url):
 
 
 def slow_down():
-    time.sleep(1)         # slow down a little: 1 seconds
+    time.sleep(1)         # slow down a little(1 second)
 
 
 # 电影信息类
@@ -132,7 +127,7 @@ def exportToMarkdown(tag, items, total):
     file.write(
         ' > 本页面是由 Python 爬虫根据电影推荐算法抓取豆瓣电影信息自动生成，列出特定主题排名靠前的一百或两百多部电影。  \n\n')
     file.write(' > 我使用的推荐算法似乎要比豆瓣默认的算法要可靠些，我可以根据特定主题对推荐算法进行调整。大家可以访问 '
-               '[豆瓣电影爬虫](https://github.com/luozhaohui/PythonSnippet/blob/master/exportTopMoviesFromDouban.py) 查看推荐算法。'
+               '[豆瓣电影爬虫](https://github.com/luozhaohui/python/blob/master/douban/exportTopMoviesFromDouban.py) 查看推荐算法。'
                '希望能得到大家的反馈与建议，改善算法，提供更精准的电影排名。  \n\n')
     file.write(' > 联系方式：  \n')
     file.write('    + 邮箱：kesalin@gmail.com  \n')
@@ -162,7 +157,7 @@ def parseItemInfo(countryList, tag, minNum, maxNum, k, page, itemInfos):
     soup = BeautifulSoup(page, 'html.parser')
     items = soup.find_all("tr", "item")
     for item in items:
-        # print(item.prettify().encode('utf-8'))
+        # print(item.prettify())
 
         # get name & url & description
         itemName = ''
@@ -172,21 +167,21 @@ def parseItemInfo(countryList, tag, minNum, maxNum, k, page, itemInfos):
         if content:
             href = content.find("a")
             if href:
-                # print(href.prettify().encode('utf-8'))
-                itemUrl = href['href'].encode('utf-8')
+                # print(href.prettify())
+                itemUrl = href['href']
                 contents = href.contents
                 if contents:
-                    itemName = contents[0].strip().encode('utf-8')
+                    itemName = contents[0].strip()
                     itemName = itemName.replace('\n', ' ').replace(
                         ' ', '').replace('/', ' / ')
                 span = href.find("span")
                 if span and span.string:
-                    subTitle = span.string.strip().encode('utf-8')
+                    subTitle = span.string.strip()
                     itemName = '{0}{1}'.format(itemName, subTitle)
 
             des = content.find("p", 'pl')
             if des and des.string:
-                description = des.string.strip().encode('utf-8')
+                description = des.string.strip()
 
         # print(" > name: {0}".format(itemName))
         # print(" > itemUrl: {0}".format(itemUrl))
@@ -216,7 +211,7 @@ def parseItemInfo(countryList, tag, minNum, maxNum, k, page, itemInfos):
         itemImage = ''
         content = item.find("img")
         if content:
-            itemImage = content['src'].encode('utf-8')
+            itemImage = content['src']
         #print(" > image: {0}".format(itemImage))
 
         # get rating
@@ -224,12 +219,12 @@ def parseItemInfo(countryList, tag, minNum, maxNum, k, page, itemInfos):
         ratingPeople = 0
         content = item.find("span", "rating_nums")
         if content and content.string:
-            ratingStr = content.string.strip().encode('utf-8')
+            ratingStr = content.string.strip()
             if len(ratingStr) > 0:
                 ratingNum = float(ratingStr)
         content = item.find("span", "pl")
         if content:
-            ratingStr = content.string.strip().encode('utf-8')
+            ratingStr = content.string.strip()
             if ratingStr == '(尚未上映)':
                 ratingPeople = -1
             else:
@@ -308,7 +303,7 @@ def spider(tag, countryList, minNum, maxNum, k):
     start = timeit.default_timer()
 
     # all producers
-    queue = Queue(20)
+    q = queue.Queue(20)
     itemInfos = []
     producers = []
 
@@ -318,31 +313,32 @@ def spider(tag, countryList, minNum, maxNum, k):
     if not page:
         print(' > invalid url {0}'.format(url))
     else:
+        nextPageStart = 100000
+        lastPageStart = 0
+
         # get url of other pages in doulist
         soup = BeautifulSoup(page, 'html.parser')
         content = soup.find("div", "paginator")
-        # print(content.prettify().encode('utf-8'))
-
-        nextPageStart = 100000
-        lastPageStart = 0
-        for child in content.children:
-            if child.name == 'a':
-                pattern = re.compile(r'(start=)([0-9]*)(.*)(&type=)')
-                match = pattern.search(child['href'].encode('utf-8'))
-                if match:
-                    index = int(match.group(2))
-                    if nextPageStart > index:
-                        nextPageStart = index
-                    if lastPageStart < index:
-                        lastPageStart = index
+        if content != None:
+            # print(content.prettify())
+            for child in content.children:
+                if child.name == 'a':
+                    pattern = re.compile(r'(start=)([0-9]*)(.*)(&type=)')
+                    match = pattern.search(child['href'])
+                    if match:
+                        index = int(match.group(2))
+                        if nextPageStart > index:
+                            nextPageStart = index
+                        if lastPageStart < index:
+                            lastPageStart = index
 
         # process current page
         #print(" > process page : {0}".format(url))
-        queue.put(page)
+        q.put(page)
 
         # create consumer
         consumer = Consumer('Consumer', tag, countryList,
-                            minNum, maxNum, k, queue, itemInfos)
+                            minNum, maxNum, k, q, itemInfos)
         consumer.start()
 
         # create producers
@@ -350,7 +346,7 @@ def spider(tag, countryList, minNum, maxNum, k):
         for pageStart in range(nextPageStart, lastPageStart + nextPageStart, nextPageStart):
             pageUrl = "{0}?start={1:d}&type=T".format(url, pageStart)
             producer = Producer('Producer_{0:d}'.format(
-                pageStart), pageUrl, queue)
+                pageStart), pageUrl, q)
             producer.start()
             producers.append(producer)
             #print(" > process page : {0}".format(pageUrl))
@@ -362,7 +358,7 @@ def spider(tag, countryList, minNum, maxNum, k):
 
         # wait for consumer
         consumer.stop()
-        queue.put(None)
+        q.put(None)
         consumer.join()
 
         # summrise
@@ -477,4 +473,4 @@ if __name__ == '__main__':
     if login_douban(username, password):
         run_spider()
     else:
-        print("登录失败：错误的用户名或者密码。")
+        print("Invalid username or password.")
