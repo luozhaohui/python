@@ -18,11 +18,11 @@
  > 社会 4 本  
  > 教育 2 本  
  > 经济 1 本  
- > 政治 1 本  
  > 人类学 1 本  
- > 商业 1 本  
- > 科学 1 本  
+ > 政治 1 本  
  > 哲学 1 本  
+ > 科学 1 本  
+ > 商业 1 本  
  > 管理 1 本  
 
 ### 软件开发: 13 本
@@ -298,17 +298,8 @@
  > 我的评论：非常不错的经济学普及读物，通俗易懂，有理有据。虽然2012还有小半年，估计这本是将会是我今年最佳的读物了。  
 
 
-### 政治: 1 本
-#### No.38 美丽新世界
- > 图书名称：[美丽新世界](https://book.douban.com/subject/1321789/)  
- > 豆瓣链接：[https://book.douban.com/subject/1321789/](https://book.douban.com/subject/1321789/)  
- > 出版信息：[英] 阿道司·赫胥黎 / 王波 / 重庆出版社 / 2005-6 / 20.00元  
- > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：反乌托邦三书之一，书中由少数精英控制的社会宣扬的是“社会、本分、安定”，真理，科学，宗教，幸福等其他真，善与美的东西都是为了稳定而必须牺牲的代价物。。。  
-
-
 ### 人类学: 1 本
-#### No.39 天真的人类学家
+#### No.38 天真的人类学家
  > 图书名称：[天真的人类学家](https://book.douban.com/subject/1129216/)  
  > 豆瓣链接：[https://book.douban.com/subject/1129216/](https://book.douban.com/subject/1129216/)  
  > 出版信息：[英] 奈杰尔·巴利 / 何颖怡 / 上海人民出版社 / 2003-8 / 15.00元  
@@ -316,13 +307,22 @@
  > 我的评论：了解下几近原始部落的生活，意识形态以及人类学调查的方式，绝对新颖，作者描述得也很有趣~~~  
 
 
-### 商业: 1 本
-#### No.40 Facebook效应
- > 图书名称：[Facebook效应](https://book.douban.com/subject/5313010/)  
- > 豆瓣链接：[https://book.douban.com/subject/5313010/](https://book.douban.com/subject/5313010/)  
- > 出版信息：[美] 大卫·柯克帕特里克 / 沈路、梁军、崔筝 / 华文出版社 / 2010-10 / 49.80  
- > 标签：商业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：社会，至少是网络社会会朝着分享与透明继续前行，从而让世界更美好。我想这是Facebook坚持的理念。  
+### 政治: 1 本
+#### No.39 美丽新世界
+ > 图书名称：[美丽新世界](https://book.douban.com/subject/1321789/)  
+ > 豆瓣链接：[https://book.douban.com/subject/1321789/](https://book.douban.com/subject/1321789/)  
+ > 出版信息：[英] 阿道司·赫胥黎 / 王波 / 重庆出版社 / 2005-6 / 20.00元  
+ > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：反乌托邦三书之一，书中由少数精英控制的社会宣扬的是“社会、本分、安定”，真理，科学，宗教，幸福等其他真，善与美的东西都是为了稳定而必须牺牲的代价物。。。  
+
+
+### 哲学: 1 本
+#### No.40 冥想的艺术
+ > 图书名称：[冥想的艺术](https://book.douban.com/subject/4742960/)  
+ > 豆瓣链接：[https://book.douban.com/subject/4742960/](https://book.douban.com/subject/4742960/)  
+ > 出版信息：[美]克丽丝蒂·麦克奈丽 / 夏理扬 / 江西人民出版社 / 2010-4 / 26.00元  
+ > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★**  
+ > 我的评论：抱着猎奇的心理看完这本书，了解了很多佛教概念，但书中提到的佛教概念太唯心了，把一切都当作投射，有时候就像精神胜利法一样。。。  
 
 
 ### 科学: 1 本
@@ -334,13 +334,13 @@
  > 我的评论：可以称之为DICOM 圣经吧，作者结合自身丰富的PACS实践经验，介绍了DICOM的优缺点，并列举出许多实际应用要注意的事项。  
 
 
-### 哲学: 1 本
-#### No.42 冥想的艺术
- > 图书名称：[冥想的艺术](https://book.douban.com/subject/4742960/)  
- > 豆瓣链接：[https://book.douban.com/subject/4742960/](https://book.douban.com/subject/4742960/)  
- > 出版信息：[美]克丽丝蒂·麦克奈丽 / 夏理扬 / 江西人民出版社 / 2010-4 / 26.00元  
- > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★**  
- > 我的评论：抱着猎奇的心理看完这本书，了解了很多佛教概念，但书中提到的佛教概念太唯心了，把一切都当作投射，有时候就像精神胜利法一样。。。  
+### 商业: 1 本
+#### No.42 Facebook效应
+ > 图书名称：[Facebook效应](https://book.douban.com/subject/5313010/)  
+ > 豆瓣链接：[https://book.douban.com/subject/5313010/](https://book.douban.com/subject/5313010/)  
+ > 出版信息：[美] 大卫·柯克帕特里克 / 沈路、梁军、崔筝 / 华文出版社 / 2010-10 / 49.80  
+ > 标签：商业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：社会，至少是网络社会会朝着分享与透明继续前行，从而让世界更美好。我想这是Facebook坚持的理念。  
 
 
 ### 管理: 1 本

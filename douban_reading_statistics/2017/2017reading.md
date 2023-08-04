@@ -14,14 +14,14 @@
  > 软件开发 12 本  
  > 历史 7 本  
  > 政治 5 本  
- > 文学 3 本  
  > 教育 3 本  
+ > 文学 3 本  
  > 法学 2 本  
- > 经济 1 本  
- > 设计 1 本  
- > 思维 1 本  
  > 人类学 1 本  
  > 科学 1 本  
+ > 思维 1 本  
+ > 经济 1 本  
+ > 设计 1 本  
 
 ### 软件开发: 12 本
 #### No.1 UNIX环境高级编程
@@ -197,50 +197,50 @@
  > 我的评论：书中提到的大部分案例在《近距离看美国》系列中基本都提到过，这一本可算是那个系统的花絮和外传吧。书中介绍了独具一格的美国南方小镇的自治状态。  
 
 
-### 文学: 3 本
-#### No.25 杀死一只知更鸟
- > 图书名称：[杀死一只知更鸟](https://book.douban.com/subject/6781808/)  
- > 豆瓣链接：[https://book.douban.com/subject/6781808/](https://book.douban.com/subject/6781808/)  
- > 出版信息：[美] 哈珀·李 / 高红梅 / 译林出版社 / 2012-9 / 32.00元  
- > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：最具童心的法学启蒙读本，正义是一种教养，杀死一只知更鸟是一种罪恶！  
-
-#### No.26 荆棘鸟
- > 图书名称：[荆棘鸟](https://book.douban.com/subject/1086249/)  
- > 豆瓣链接：[https://book.douban.com/subject/1086249/](https://book.douban.com/subject/1086249/)  
- > 出版信息：[澳] 考琳·麦卡洛 / 曾胡 / 译林出版社 / 1998-7 / 28.00元  
- > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
- > 我的评论：澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。讲述一家三代女人的爱情，单纯的爱，单纯的迷恋，单纯的伤害。翻译很用心很用心。  
-
-#### No.27 陆犯焉识
- > 图书名称：[陆犯焉识](https://book.douban.com/subject/6880158/)  
- > 豆瓣链接：[https://book.douban.com/subject/6880158/](https://book.douban.com/subject/6880158/)  
- > 出版信息：严歌苓 / 作家出版社 / 2011-10-1 / 35.00元  
- > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
- > 我的评论：经历比较曲折吧，经历了民国、留美、上海抗战、重庆抗战、被反右、西北改造、被平反、回上海又被儿女单位化了。主线还是爱情，所以不算是严肃文学。前后两部分主角的心理状态变化过程衔接不太好，顺变的感觉，给出的理由又不够有说服力。  
-
-
 ### 教育: 3 本
-#### No.28 让孩子的大脑自由
+#### No.25 让孩子的大脑自由
  > 图书名称：[让孩子的大脑自由](https://book.douban.com/subject/10758030/)  
  > 豆瓣链接：[https://book.douban.com/subject/10758030/](https://book.douban.com/subject/10758030/)  
  > 出版信息：（美）约翰•梅迪纳 / 王佳艺 / 浙江人民出版社 / 2012-6 / 42.90元  
  > 标签：教育&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：育儿常识集合。从孕期注意事项到夫妻感情对孩子的影响，从智力的影响因素到孩子应该如何表扬，从培养共情到如何惩罚，涵盖主题较广。研究结果与实践相结合，理论性和操作性都尚可。父母是孩子的榜样，别让孩子生活在原生家庭的阴影中。  
 
-#### No.29 游戏力
+#### No.26 游戏力
  > 图书名称：[游戏力](https://book.douban.com/subject/6084402/)  
  > 豆瓣链接：[https://book.douban.com/subject/6084402/](https://book.douban.com/subject/6084402/)  
  > 出版信息：Lawrence J. Cohen, Ph.D. / 李岩 / 军事谊文出版社 / 2011-5-1 / 39.00元  
  > 标签：教育&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：游戏是探索求知、亲情培养、社交情商、情绪调节多方面的灵丹妙药。洗澡的不听--玩水的乖乖来，这就是游戏力的魔力。  
 
-#### No.30 把你的英语用起来！
+#### No.27 把你的英语用起来！
  > 图书名称：[把你的英语用起来！](https://book.douban.com/subject/3748247/)  
  > 豆瓣链接：[https://book.douban.com/subject/3748247/](https://book.douban.com/subject/3748247/)  
  > 出版信息：伍君仪、刘晓光 / 外文出版社 / 2013-6 / 36.00元  
  > 标签：教育&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
  > 我的评论：路线图+资料汇总。作者主要推崇通过循序渐进地大量阅读与透析原著来提高英语水平。  
+
+
+### 文学: 3 本
+#### No.28 杀死一只知更鸟
+ > 图书名称：[杀死一只知更鸟](https://book.douban.com/subject/6781808/)  
+ > 豆瓣链接：[https://book.douban.com/subject/6781808/](https://book.douban.com/subject/6781808/)  
+ > 出版信息：[美] 哈珀·李 / 高红梅 / 译林出版社 / 2012-9 / 32.00元  
+ > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：最具童心的法学启蒙读本，正义是一种教养，杀死一只知更鸟是一种罪恶！  
+
+#### No.29 荆棘鸟
+ > 图书名称：[荆棘鸟](https://book.douban.com/subject/1086249/)  
+ > 豆瓣链接：[https://book.douban.com/subject/1086249/](https://book.douban.com/subject/1086249/)  
+ > 出版信息：[澳] 考琳·麦卡洛 / 曾胡 / 译林出版社 / 1998-7 / 28.00元  
+ > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
+ > 我的评论：澳大利亚的“《飘》”不如美国的《飘》，相当程度低美化了德罗海达庄园的生活。讲述一家三代女人的爱情，单纯的爱，单纯的迷恋，单纯的伤害。翻译很用心很用心。  
+
+#### No.30 陆犯焉识
+ > 图书名称：[陆犯焉识](https://book.douban.com/subject/6880158/)  
+ > 豆瓣链接：[https://book.douban.com/subject/6880158/](https://book.douban.com/subject/6880158/)  
+ > 出版信息：严歌苓 / 作家出版社 / 2011-10-1 / 35.00元  
+ > 标签：文学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
+ > 我的评论：经历比较曲折吧，经历了民国、留美、上海抗战、重庆抗战、被反右、西北改造、被平反、回上海又被儿女单位化了。主线还是爱情，所以不算是严肃文学。前后两部分主角的心理状态变化过程衔接不太好，顺变的感觉，给出的理由又不够有说服力。  
 
 
 ### 法学: 2 本
@@ -259,22 +259,22 @@
  > 我的评论：搭配林达的《近距离看美国》系列一起看，有对比、多角度看会更有趣。通俗易懂地通过一个个具体案件讲述美国人民怎样在分权与制衡理念下一步一步完善、更新他们的宪政观念与制度，尤其是在这个过程中最高法院如何一步一步建立和维护宪政的权威，当然也有错判与现实的妥协。民主可以说一种妥协制度。  
 
 
-### 经济: 1 本
-#### No.33 经济为什么会崩溃
- > 图书名称：[经济为什么会崩溃](https://book.douban.com/subject/6743298/)  
- > 豆瓣链接：[https://book.douban.com/subject/6743298/](https://book.douban.com/subject/6743298/)  
- > 出版信息：〔美〕彼得•D•希夫  安德鲁•J•希夫 / 胡晓姣、吕靖纬 / 中信出版社 / 2011-8 / 39.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：有趣有料，简明简短，正三观，经济学门外汉入门首选！  
+### 人类学: 1 本
+#### No.33 金枝
+ > 图书名称：[金枝](https://book.douban.com/subject/2101774/)  
+ > 豆瓣链接：[https://book.douban.com/subject/2101774/](https://book.douban.com/subject/2101774/)  
+ > 出版信息：（英）弗雷泽 / 徐育新、汪培基等 / 大众文艺出版社 / 1998-01 / 78.00元  
+ > 标签：人类学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：通过海量的民俗或宗教仪式案例探讨巫术、宗教、科学之间的关系与发展历程。巫术无非交感与顺势两种思维方式，加上认为灵魂可以独立于体外保存和活动的概念，衍生出重点驱魔辟邪、永葆生命力等众多巫术或宗教仪式。人类学经典之作，对理解传统社会的一些习俗很有借鉴意义。  
 
 
-### 设计: 1 本
-#### No.34 设计心理学
- > 图书名称：[设计心理学](https://book.douban.com/subject/4606471/)  
- > 豆瓣链接：[https://book.douban.com/subject/4606471/](https://book.douban.com/subject/4606471/)  
- > 出版信息：[美]唐纳德·A·诺曼 / 梅琼 / 中信出版社 / 2010-03 / 30.00元  
- > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：论可视性与反馈的重要性，非常经典的设计方面的书籍。  
+### 科学: 1 本
+#### No.34 黑猩猩在召唤
+ > 图书名称：[黑猩猩在召唤](https://book.douban.com/subject/1951398/)  
+ > 豆瓣链接：[https://book.douban.com/subject/1951398/](https://book.douban.com/subject/1951398/)  
+ > 出版信息：Jane van Lawick-Goodall / 刘后一、张锋 / 科学出版社 / 1980 / 1.05  
+ > 标签：科学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：通过科学观察写成的有关黑猩猩的江湖，集科学性、故事性、启发性于一体，佩服作者的专注与热情。培养某个或某些兴趣是最好的成长。  
 
 
 ### 思维: 1 本
@@ -286,21 +286,21 @@
  > 我的评论：在狭隘的精英教育下只顾成长的一代缺失了意义感、好奇心，这是社会阶层固化，各自只顾各自小圈子的必然现象。  
 
 
-### 人类学: 1 本
-#### No.36 金枝
- > 图书名称：[金枝](https://book.douban.com/subject/2101774/)  
- > 豆瓣链接：[https://book.douban.com/subject/2101774/](https://book.douban.com/subject/2101774/)  
- > 出版信息：（英）弗雷泽 / 徐育新、汪培基等 / 大众文艺出版社 / 1998-01 / 78.00元  
- > 标签：人类学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：通过海量的民俗或宗教仪式案例探讨巫术、宗教、科学之间的关系与发展历程。巫术无非交感与顺势两种思维方式，加上认为灵魂可以独立于体外保存和活动的概念，衍生出重点驱魔辟邪、永葆生命力等众多巫术或宗教仪式。人类学经典之作，对理解传统社会的一些习俗很有借鉴意义。  
+### 经济: 1 本
+#### No.36 经济为什么会崩溃
+ > 图书名称：[经济为什么会崩溃](https://book.douban.com/subject/6743298/)  
+ > 豆瓣链接：[https://book.douban.com/subject/6743298/](https://book.douban.com/subject/6743298/)  
+ > 出版信息：〔美〕彼得•D•希夫  安德鲁•J•希夫 / 胡晓姣、吕靖纬 / 中信出版社 / 2011-8 / 39.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：有趣有料，简明简短，正三观，经济学门外汉入门首选！  
 
 
-### 科学: 1 本
-#### No.37 黑猩猩在召唤
- > 图书名称：[黑猩猩在召唤](https://book.douban.com/subject/1951398/)  
- > 豆瓣链接：[https://book.douban.com/subject/1951398/](https://book.douban.com/subject/1951398/)  
- > 出版信息：Jane van Lawick-Goodall / 刘后一、张锋 / 科学出版社 / 1980 / 1.05  
- > 标签：科学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：通过科学观察写成的有关黑猩猩的江湖，集科学性、故事性、启发性于一体，佩服作者的专注与热情。培养某个或某些兴趣是最好的成长。  
+### 设计: 1 本
+#### No.37 设计心理学
+ > 图书名称：[设计心理学](https://book.douban.com/subject/4606471/)  
+ > 豆瓣链接：[https://book.douban.com/subject/4606471/](https://book.douban.com/subject/4606471/)  
+ > 出版信息：[美]唐纳德·A·诺曼 / 梅琼 / 中信出版社 / 2010-03 / 30.00元  
+ > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：论可视性与反馈的重要性，非常经典的设计方面的书籍。  
 
 

@@ -16,8 +16,8 @@
  > 历史 3 本  
  > 管理 3 本  
  > 教育 2 本  
- > 设计 2 本  
  > 心理 2 本  
+ > 设计 2 本  
  > 经济 1 本  
  > 社会 1 本  
  > 文学 1 本  
@@ -270,36 +270,36 @@
  > 我的评论：排版，翻译之差，严重糟蹋了好书。BTW，原著还是相当经典的，建议看原版《The elements of style》。只可惜阅读量太少，里面讲的模式，还有很多没感觉。。。  
 
 
-### 设计: 2 本
-#### No.35 写给大家看的设计书（第3版）
- > 图书名称：[写给大家看的设计书（第3版）](https://book.douban.com/subject/3323633/)  
- > 豆瓣链接：[https://book.douban.com/subject/3323633/](https://book.douban.com/subject/3323633/)  
- > 出版信息：[美] Robin Williams / 苏金国、刘亮 / 人民邮电出版社 / 2009-1 / 49.00元  
- > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：前半部分的四个基本原则听不错的，后半部分感觉一般般了。总的来说，还是相当值得一看的。。。  
-
-#### No.36 The Non-Designer's Design Book
- > 图书名称：[The Non-Designer's Design Book](https://book.douban.com/subject/5312108/)  
- > 豆瓣链接：[https://book.douban.com/subject/5312108/](https://book.douban.com/subject/5312108/)  
- > 出版信息：Robin Williams / Pearson Education / 1995-1-25 / 19.79$  
- > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：Wonderful! It's for beginner.  
-
-
 ### 心理: 2 本
-#### No.37 直觉
+#### No.35 直觉
  > 图书名称：[直觉](https://book.douban.com/subject/3194672/)  
  > 豆瓣链接：[https://book.douban.com/subject/3194672/](https://book.douban.com/subject/3194672/)  
  > 出版信息：戴维·迈尔斯 / 章崇会 / 湛庐文化 / 2008-9 / 39.80元  
  > 标签：心理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：一系列行为心理学实验报告汇总，直觉不总是对的。。。  
 
-#### No.38 亲密关系
+#### No.36 亲密关系
  > 图书名称：[亲密关系](https://book.douban.com/subject/6052834/)  
  > 豆瓣链接：[https://book.douban.com/subject/6052834/](https://book.douban.com/subject/6052834/)  
  > 出版信息：[加] 克里斯多福·孟 / 余惠玲、张德芬 / 山西经济出版社 / 2011-3 / 28.00元  
  > 标签：心理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
  > 我的评论：要有精简版本就好了，写成文学作品一样的，冗长。。。。  
+
+
+### 设计: 2 本
+#### No.37 写给大家看的设计书（第3版）
+ > 图书名称：[写给大家看的设计书（第3版）](https://book.douban.com/subject/3323633/)  
+ > 豆瓣链接：[https://book.douban.com/subject/3323633/](https://book.douban.com/subject/3323633/)  
+ > 出版信息：[美] Robin Williams / 苏金国、刘亮 / 人民邮电出版社 / 2009-1 / 49.00元  
+ > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：前半部分的四个基本原则听不错的，后半部分感觉一般般了。总的来说，还是相当值得一看的。。。  
+
+#### No.38 The Non-Designer's Design Book
+ > 图书名称：[The Non-Designer's Design Book](https://book.douban.com/subject/5312108/)  
+ > 豆瓣链接：[https://book.douban.com/subject/5312108/](https://book.douban.com/subject/5312108/)  
+ > 出版信息：Robin Williams / Pearson Education / 1995-1-25 / 19.79$  
+ > 标签：设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：Wonderful! It's for beginner.  
 
 
 ### 经济: 1 本

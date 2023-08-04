@@ -14,15 +14,15 @@
  > 历史 13 本  
  > 文学 11 本  
  > 思维 7 本  
- > 经济 6 本  
  > 政治 6 本  
+ > 经济 6 本  
  > 软件开发 5 本  
  > 投资 5 本  
  > 心理 3 本  
+ > 哲学 2 本  
+ > 社会 2 本  
  > 教育 2 本  
  > 人类学 2 本  
- > 社会 2 本  
- > 哲学 2 本  
  > 科学 1 本  
 
 ### 历史: 13 本
@@ -248,92 +248,92 @@
  > 我的评论：烂书，挂着批判性思维的牌子，其实不成体系，介绍了一大堆逻辑规则而已。《学会体会-批判性思维指南》才是批判性思维方面的经典。  
 
 
-### 经济: 6 本
-#### No.32 经济学原理
- > 图书名称：[经济学原理](https://book.douban.com/subject/3719531/)  
- > 豆瓣链接：[https://book.douban.com/subject/3719531/](https://book.douban.com/subject/3719531/)  
- > 出版信息：[美] N.格里高利·曼昆 / 梁小民、梁砾 / 北京大学出版社 / 2009-4 / 42.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：宏观分册没有微观分册那么有趣味性和确定性，毕竟宏观经济学还在发展中，各派理论都各有观点与拥趸。这一册重点讲利率，汇率，失业率，税收，通货膨胀，古典二分法等之间的关联，尤其重点讲政府推出货币政策及财政政策对这些变量的影响。了解这些基本原理，对预判经济政策的影响，以及解释各种经济现象很有帮助。  
-
-#### No.33 经济学原理
- > 图书名称：[经济学原理](https://book.douban.com/subject/3719533/)  
- > 豆瓣链接：[https://book.douban.com/subject/3719533/](https://book.douban.com/subject/3719533/)  
- > 出版信息：[美] N.格里高利·曼昆 / 梁小民、梁砾 / 北京大学出版社 / 2009-4-1 / 54.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：经济学入门经典，比同类经典《经济学的思维方式》写得更理论一点，推理严谨，前后连贯。两书的写作风格相似，每章后都有总结与问题。若推荐入门，我更偏好这一本。学经济学首先能让你明白日常生活中的现象，其次能让你从不同视角思考问题，对从计划经济与一直被洗脑走过来的我们来说尤其值得了解。  
-
-#### No.34 长尾理论
- > 图书名称：[长尾理论](https://book.douban.com/subject/1919072/)  
- > 豆瓣链接：[https://book.douban.com/subject/1919072/](https://book.douban.com/subject/1919072/)  
- > 出版信息：[美] 克里斯·安德森 / 乔江涛 / 中信出版社 / 2006-12 / 35.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：比较完美地解释了“互联网经济”，长尾的三大部分：无限（丰饶）产品，无限（个性化）需求，以及需求寻找合适产品的过滤器（如搜索引擎，推荐系统等），理解了这些就才算有点“互联网思维”，“免费”还能挣钱！  
-
-#### No.35 金融的逻辑
- > 图书名称：[金融的逻辑](https://book.douban.com/subject/3891900/)  
- > 豆瓣链接：[https://book.douban.com/subject/3891900/](https://book.douban.com/subject/3891900/)  
- > 出版信息：陈志武 / 国际文化出版公司 / 2009-08-01 / 39.80元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：从资本角度讲述金融的力量，如资本可以创造价值，房贷什么的是预支未来人力资本的价值。作为普及市场概念与金融知识的读物，赞一个。  
-
-#### No.36 炒股的智慧
- > 图书名称：[炒股的智慧](https://book.douban.com/subject/1182173/)  
- > 豆瓣链接：[https://book.douban.com/subject/1182173/](https://book.douban.com/subject/1182173/)  
- > 出版信息：陈江挺 / 经济科学出版社 / 2004-1 / 22.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：脱离蛮干盲干式炒股的入门指导书。。。  
-
-#### No.37 理性乐观派
- > 图书名称：[理性乐观派](https://book.douban.com/subject/6913343/)  
- > 豆瓣链接：[https://book.douban.com/subject/6913343/](https://book.douban.com/subject/6913343/)  
- > 出版信息：（美）马特·里德利（Matt Ridley） / 闾佳 / 机械工业出版社 / 2011-12 / 45.00元  
- > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
- > 我的评论：哦，又一本讲人类经济史的畅销书，还算行，看过一两本经济学原理的书就不必看这书了，患有畅销书毛病：观点少而周知，罗列一大堆例子以充实内容而已。  
-
-
 ### 政治: 6 本
-#### No.38 1984 动物农场
+#### No.32 1984 动物农场
  > 图书名称：[1984 动物农场](https://book.douban.com/subject/22988752/)  
  > 豆瓣链接：[https://book.douban.com/subject/22988752/](https://book.douban.com/subject/22988752/)  
  > 出版信息：乔治·奥威尔 (Orwell G.) / 董乐山、高源 / 华东师范大学出版社 / 2013-5-1 / 25.00元  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
  > 我的评论：《1984》名声在外：老大哥在看着你，真理部，思想改造，双重思想，自由即奴役，揭露极权政府如何愚民洗脑的手段。而《动物农场》是寓言，更是预言，揭露极权政府如何是如何一步一步形成的，活脱脱一部党国史。  
 
-#### No.39 通往奴役之路
+#### No.33 通往奴役之路
  > 图书名称：[通往奴役之路](https://book.douban.com/subject/1077528/)  
  > 豆瓣链接：[https://book.douban.com/subject/1077528/](https://book.douban.com/subject/1077528/)  
  > 出版信息：哈耶克 / 王明毅、冯兴元、等 / 中国社会科学出版社 / 1997-08-01 / 16.00  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
  > 我的评论：70年前发表的振聋发聩的思想见解，后来世上发生的许多不幸事情都被一一言中。书中论述了计划与市场，经济自由与政治自由，法治与民主，经济控制与极权主义，保障与自由，道德与自由，以及联邦制与国际秩序等问题。翻译逊色，语句结构上基本是中文字词+英文长句语法，读来绕神经，但字词还是准确的，只是结构顺序调整不到位。  
 
-#### No.40 自由与繁荣的国度
+#### No.34 自由与繁荣的国度
  > 图书名称：[自由与繁荣的国度](https://book.douban.com/subject/1043419/)  
  > 豆瓣链接：[https://book.douban.com/subject/1043419/](https://book.douban.com/subject/1043419/)  
  > 出版信息：[奥] 路德维希·冯·米瑟斯 / 韩光明 等 / 中国社会科学出版社 / 1995-1 / 13.40元  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：以自由主义的根基“私有制”为出发点，论证它为何促进了社会利益最大化，和平，民主，以及如何限定了政府的职责范围。作者乃奥地利经济学派的重要人物。  
 
-#### No.41 历史决定论的贫困
+#### No.35 历史决定论的贫困
  > 图书名称：[历史决定论的贫困](https://book.douban.com/subject/3803268/)  
  > 豆瓣链接：[https://book.douban.com/subject/3803268/](https://book.douban.com/subject/3803268/)  
  > 出版信息：[英] 卡尔·波普尔 / 杜汝楫、邱仁宗 / 上海人民出版社 / 2009-7 / 20.00元  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：波普尔从逻辑推理上否定马克思主义的唯物历史发展观。他主要的论证过程为：由于人类根本无法预知人类知识的增长，而历史进程的发展又受制于人类知识的影响，所以人类无法对人类社会未来的发展进行预测，因此所谓的“历史决定论”实际上是毫无可能的。也就是说我们不可能预测人类社会必然会经历社会主义，最终到达终极的共产主义。  
 
-#### No.42 旧制度与大革命
+#### No.36 旧制度与大革命
  > 图书名称：[旧制度与大革命](https://book.douban.com/subject/1032063/)  
  > 豆瓣链接：[https://book.douban.com/subject/1032063/](https://book.douban.com/subject/1032063/)  
  > 出版信息：[法] 托克维尔 / 冯棠 / 商务印书馆 / 1992-08 / 12.80元  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：托克维尔另一经典著作，探讨法国大革命之所以然，已然与未然。。。  
 
-#### No.43 民主的奇迹
+#### No.37 民主的奇迹
  > 图书名称：[民主的奇迹](https://book.douban.com/subject/24529162/)  
  > 豆瓣链接：[https://book.douban.com/subject/24529162/](https://book.douban.com/subject/24529162/)  
  > 出版信息：凯瑟琳·德林克·鲍恩 / 郑明萱 / 新星出版社 / 2013-7 / 37.00元  
  > 标签：政治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
  > 我的评论：流水账一般记录在美国宪法制定的127天里各方的辩论，妥协。当故事看看吧，想想一帮人在炎热的费城辩论如何保障合众民还是合众州之幸福，也颇为有趣，但也仅此而已，《联邦党人文集》更具思想性。  
+
+
+### 经济: 6 本
+#### No.38 经济学原理
+ > 图书名称：[经济学原理](https://book.douban.com/subject/3719531/)  
+ > 豆瓣链接：[https://book.douban.com/subject/3719531/](https://book.douban.com/subject/3719531/)  
+ > 出版信息：[美] N.格里高利·曼昆 / 梁小民、梁砾 / 北京大学出版社 / 2009-4 / 42.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：宏观分册没有微观分册那么有趣味性和确定性，毕竟宏观经济学还在发展中，各派理论都各有观点与拥趸。这一册重点讲利率，汇率，失业率，税收，通货膨胀，古典二分法等之间的关联，尤其重点讲政府推出货币政策及财政政策对这些变量的影响。了解这些基本原理，对预判经济政策的影响，以及解释各种经济现象很有帮助。  
+
+#### No.39 经济学原理
+ > 图书名称：[经济学原理](https://book.douban.com/subject/3719533/)  
+ > 豆瓣链接：[https://book.douban.com/subject/3719533/](https://book.douban.com/subject/3719533/)  
+ > 出版信息：[美] N.格里高利·曼昆 / 梁小民、梁砾 / 北京大学出版社 / 2009-4-1 / 54.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：经济学入门经典，比同类经典《经济学的思维方式》写得更理论一点，推理严谨，前后连贯。两书的写作风格相似，每章后都有总结与问题。若推荐入门，我更偏好这一本。学经济学首先能让你明白日常生活中的现象，其次能让你从不同视角思考问题，对从计划经济与一直被洗脑走过来的我们来说尤其值得了解。  
+
+#### No.40 长尾理论
+ > 图书名称：[长尾理论](https://book.douban.com/subject/1919072/)  
+ > 豆瓣链接：[https://book.douban.com/subject/1919072/](https://book.douban.com/subject/1919072/)  
+ > 出版信息：[美] 克里斯·安德森 / 乔江涛 / 中信出版社 / 2006-12 / 35.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：比较完美地解释了“互联网经济”，长尾的三大部分：无限（丰饶）产品，无限（个性化）需求，以及需求寻找合适产品的过滤器（如搜索引擎，推荐系统等），理解了这些就才算有点“互联网思维”，“免费”还能挣钱！  
+
+#### No.41 金融的逻辑
+ > 图书名称：[金融的逻辑](https://book.douban.com/subject/3891900/)  
+ > 豆瓣链接：[https://book.douban.com/subject/3891900/](https://book.douban.com/subject/3891900/)  
+ > 出版信息：陈志武 / 国际文化出版公司 / 2009-08-01 / 39.80元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：从资本角度讲述金融的力量，如资本可以创造价值，房贷什么的是预支未来人力资本的价值。作为普及市场概念与金融知识的读物，赞一个。  
+
+#### No.42 炒股的智慧
+ > 图书名称：[炒股的智慧](https://book.douban.com/subject/1182173/)  
+ > 豆瓣链接：[https://book.douban.com/subject/1182173/](https://book.douban.com/subject/1182173/)  
+ > 出版信息：陈江挺 / 经济科学出版社 / 2004-1 / 22.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：脱离蛮干盲干式炒股的入门指导书。。。  
+
+#### No.43 理性乐观派
+ > 图书名称：[理性乐观派](https://book.douban.com/subject/6913343/)  
+ > 豆瓣链接：[https://book.douban.com/subject/6913343/](https://book.douban.com/subject/6913343/)  
+ > 出版信息：（美）马特·里德利（Matt Ridley） / 闾佳 / 机械工业出版社 / 2011-12 / 45.00元  
+ > 标签：经济&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★**  
+ > 我的评论：哦，又一本讲人类经济史的畅销书，还算行，看过一两本经济学原理的书就不必看这书了，患有畅销书毛病：观点少而周知，罗列一大堆例子以充实内容而已。  
 
 
 ### 软件开发: 5 本
@@ -433,15 +433,47 @@
  > 我的评论：相比之下巴斯的那一本同名书水准要高很多，建议阅读那一本，这一本仅作补充，这本中间有讲婴儿心理的发展，而巴斯那本讲的很少。  
 
 
+### 哲学: 2 本
+#### No.57 中国哲学史大纲
+ > 图书名称：[中国哲学史大纲](https://book.douban.com/subject/4201709/)  
+ > 豆瓣链接：[https://book.douban.com/subject/4201709/](https://book.douban.com/subject/4201709/)  
+ > 出版信息：胡适 / 岳麓书社 / 2010-1 / 27.00元  
+ > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：哲学史大纲  
+
+#### No.58 中国哲学简史
+ > 图书名称：[中国哲学简史](https://book.douban.com/subject/4879726/)  
+ > 豆瓣链接：[https://book.douban.com/subject/4879726/](https://book.douban.com/subject/4879726/)  
+ > 出版信息：冯友兰 / 赵复三 / 江苏文艺出版社 / 2013-1 / 22.00元  
+ > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：哲学简史  
+
+
+### 社会: 2 本
+#### No.59 乡土中国 生育制度 乡土重建
+ > 图书名称：[乡土中国 生育制度 乡土重建](https://book.douban.com/subject/10532835/)  
+ > 豆瓣链接：[https://book.douban.com/subject/10532835/](https://book.douban.com/subject/10532835/)  
+ > 出版信息：费孝通 / 商务印书馆 / 2011-12 / 50.00元  
+ > 标签：社会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
+ > 我的评论：《乡土中国》是费孝通的成名作，作者从社会学角度来分析中国的乡土现实与情结，分析了为什么中国人的乡土观念这么强，家族宗法制的形成背景，乡绅阶层与地方自治以及无讼是求之间的关系。《生育制度》又结合中国的宗法家族制度以及伦理观念来讲述由中国式传宗接代观念而形成的亲戚、继承等各种生育制度，着重讲解中国特色的婚姻制度，家族观念之形成背景以及掩藏其礼俗表面下的缘由，进化因素，这对理解传统社会相当有帮助，对理解当今农村社会生活的一些习俗依然有非常重要的现实意义，比如理解娘亲舅大，爹亲叔大之缘由。《乡土重建》则是作者为民国政府重建农村经济出谋划策写的一些建议策略，对理解中国传统农村的经济状态非常有帮助。  
+
+#### No.60 王小波散文精选
+ > 图书名称：[王小波散文精选](https://book.douban.com/subject/4023216/)  
+ > 豆瓣链接：[https://book.douban.com/subject/4023216/](https://book.douban.com/subject/4023216/)  
+ > 出版信息：王小波 / 长江文艺出版社 / 2009-7 / 20.00元  
+ > 标签：社会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
+ > 我的评论：活着要有趣，社会要参差不齐。冷嘲反讽是作者的风格，虽不如鲁迅辛辣，却是真性情。作者貌似很推崇罗素。  
+
+
 ### 教育: 2 本
-#### No.57 吾国教育病理
+#### No.61 吾国教育病理
  > 图书名称：[吾国教育病理](https://book.douban.com/subject/25733170/)  
  > 豆瓣链接：[https://book.douban.com/subject/25733170/](https://book.douban.com/subject/25733170/)  
  > 出版信息：郑也夫 / 中信出版社 / 2013-9-1 / CNY 42.00  
  > 标签：教育&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：作者博览群书，颇有思辨精神，但书中也有不少武断推论的硬伤，总体上来说还是相当不错的一本书，不但能纠出病理，还能瞟见独立思考，尤其是从第七章起的后半部分“放权”讲的不错。为人父母，为人师，为中国教育计，值得了解。  
 
-#### No.58 从出生到3岁
+#### No.62 从出生到3岁
  > 图书名称：[从出生到3岁](https://book.douban.com/subject/1967845/)  
  > 豆瓣链接：[https://book.douban.com/subject/1967845/](https://book.douban.com/subject/1967845/)  
  > 出版信息：[美]伯顿·L·怀特（(Burton L.White） / 宋苗 / 京华出版社 / 2007-2 / 35.00元  
@@ -450,51 +482,19 @@
 
 
 ### 人类学: 2 本
-#### No.59 金翼
+#### No.63 金翼
  > 图书名称：[金翼](https://book.douban.com/subject/1027210/)  
  > 豆瓣链接：[https://book.douban.com/subject/1027210/](https://book.douban.com/subject/1027210/)  
  > 出版信息：林耀华 / 三联书店 / 2000-04-01 / 12.00  
  > 标签：人类学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：述说两个家庭在中国民间传统文化与经济的背景下，面对新的商业社会的经济方式，如何调整适应以求新的发展或因不能适应而日渐衰落，再现了30年代前后中国农村生活的情景及经济变迁的剖断面。作者提出均衡理论：橡皮筋-竹竿模型来解释人际均衡关系。  
 
-#### No.60 林村的故事
+#### No.64 林村的故事
  > 图书名称：[林村的故事](https://book.douban.com/subject/1082196/)  
  > 豆瓣链接：[https://book.douban.com/subject/1082196/](https://book.douban.com/subject/1082196/)  
  > 出版信息：黄树民 / 素兰、纳日碧力戈 / 生活·读书·新知三联书店 / 2002-3 / 18.00元  
  > 标签：人类学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
  > 我的评论：这是一部关于解放初至改革开放初(85年)见厦门城郊农村变迁过程的人类学著作，通过一个有个性有思想的村支书的之眼展现土地改革，公社，大跃进，大饥荒，四清运动，文革，家庭承包责任制，解体集体制，改革开放等众多社会大事对农村的影响。BTW，书中的村支书和我的岳父有点神似。  
-
-
-### 社会: 2 本
-#### No.61 乡土中国 生育制度 乡土重建
- > 图书名称：[乡土中国 生育制度 乡土重建](https://book.douban.com/subject/10532835/)  
- > 豆瓣链接：[https://book.douban.com/subject/10532835/](https://book.douban.com/subject/10532835/)  
- > 出版信息：费孝通 / 商务印书馆 / 2011-12 / 50.00元  
- > 标签：社会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★★**  
- > 我的评论：《乡土中国》是费孝通的成名作，作者从社会学角度来分析中国的乡土现实与情结，分析了为什么中国人的乡土观念这么强，家族宗法制的形成背景，乡绅阶层与地方自治以及无讼是求之间的关系。《生育制度》又结合中国的宗法家族制度以及伦理观念来讲述由中国式传宗接代观念而形成的亲戚、继承等各种生育制度，着重讲解中国特色的婚姻制度，家族观念之形成背景以及掩藏其礼俗表面下的缘由，进化因素，这对理解传统社会相当有帮助，对理解当今农村社会生活的一些习俗依然有非常重要的现实意义，比如理解娘亲舅大，爹亲叔大之缘由。《乡土重建》则是作者为民国政府重建农村经济出谋划策写的一些建议策略，对理解中国传统农村的经济状态非常有帮助。  
-
-#### No.62 王小波散文精选
- > 图书名称：[王小波散文精选](https://book.douban.com/subject/4023216/)  
- > 豆瓣链接：[https://book.douban.com/subject/4023216/](https://book.douban.com/subject/4023216/)  
- > 出版信息：王小波 / 长江文艺出版社 / 2009-7 / 20.00元  
- > 标签：社会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：活着要有趣，社会要参差不齐。冷嘲反讽是作者的风格，虽不如鲁迅辛辣，却是真性情。作者貌似很推崇罗素。  
-
-
-### 哲学: 2 本
-#### No.63 中国哲学史大纲
- > 图书名称：[中国哲学史大纲](https://book.douban.com/subject/4201709/)  
- > 豆瓣链接：[https://book.douban.com/subject/4201709/](https://book.douban.com/subject/4201709/)  
- > 出版信息：胡适 / 岳麓书社 / 2010-1 / 27.00元  
- > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：哲学史大纲  
-
-#### No.64 中国哲学简史
- > 图书名称：[中国哲学简史](https://book.douban.com/subject/4879726/)  
- > 豆瓣链接：[https://book.douban.com/subject/4879726/](https://book.douban.com/subject/4879726/)  
- > 出版信息：冯友兰 / 赵复三 / 江苏文艺出版社 / 2013-1 / 22.00元  
- > 标签：哲学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：**★★★★**  
- > 我的评论：哲学简史  
 
 
 ### 科学: 1 本

@@ -8,7 +8,10 @@
 # Version       : 1.0.0.0
 # Python Version: Python 3.7.3
 # Beautiful Soup: http://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#
-
+#
+# pip3 install requests
+# pip3 install BeautifulSoup4
+#
 import os
 import time
 import timeit

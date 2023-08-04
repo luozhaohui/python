@@ -9,7 +9,10 @@
 # Python Version: Python 3.7.3
 # Python Queue  : https://docs.python.org/2/library/queue.html
 # Beautiful Soup: http://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#
-
+#
+# pip3 install requests
+# pip3 install BeautifulSoup4
+#
 import os
 import time
 import timeit
